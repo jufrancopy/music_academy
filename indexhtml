@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia de Música Torre Fuerte</title>
+    <style>
+        :root {
+            --primary-color: #1a2639;
+            --secondary-color: #d4af37;
+            --accent-color: #3f4e65;
+            --light-color: #f5f5f5;
+            --font-main: 'Playfair Display', Georgia, serif;
+            --font-body: 'Raleway', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light-color);
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            background-image: linear-gradient(rgba(26, 38, 57, 0.9), rgba(26, 38, 57, 0.9)), url('/api/placeholder/1200/400');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .logo {
+            font-family: var(--font-main);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .tagline {
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        section {
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-family: var(--font-main);
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 10px auto;
+        }
+        
+        .intro-text {
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .methodology {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .methodology-title {
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .methodology-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .methodology-item {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .methodology-item h4 {
+            color: var(--secondary-color);
+            font-family: var(--font-main);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .methodology-item h4 i {
+            margin-right: 10px;
+        }
+        
+        .choir-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .choir-content h3 {
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .choir-img {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .courses {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .course-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .course-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .course-title {
+            font-family: var(--font-main);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .course-desc {
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .course-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 0.7rem 1.5rem;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+        
+        .about {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-img {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .about-content h3 {
+            font-family: var(--font-main);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .team {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .team-member {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .team-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            overflow: hidden;
+        }
+        
+        .team-name {
+            font-family: var(--font-main);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .team-role {
+            font-style: italic;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .footer-section h3 {
+            font-family: var(--font-main);
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+        }
+        
+        .modal-content {
+            background-color: var(--light-color);
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 700px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        .modal-title {
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .program-list {
+            margin-bottom: 1.5rem;
+        }
+        
+        .program-list h4 {
+            color: var(--secondary-color);
+            margin: 1rem 0 0.5rem;
+        }
+        
+        .program-list ul {
+            padding-left: 1.5rem;
+        }
+        
+        .program-list li {
+            margin-bottom: 0.3rem;
+        }
+        
+        /* Floating buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 99;
+        }
+        
+        .floating-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        .floating-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            transform: scale(1.1);
+        }
+        
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .courses, .about, .team, .methodology-content, .choir-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                order: -1;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
+            
+            .floating-buttons {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Academia de Música Torre Fuerte</h1>
+            <p class="tagline">Formando artistas integrales para el futuro</p>
+        </div>
+    </header>
+    
+    <section class="container">
+        <h2 class="section-title">Nuestra Misión</h2>
+        <div class="intro-text">
+            <p>Nuestra iniciativa de educación musical se alinea perfectamente con la visión del Colegio Torre Fuerte de San Lorenzo. La música, como expresión artística universal, constituye un pilar fundamental en la formación integral de la persona. A través de ella, los estudiantes pueden desarrollar no solo habilidades técnicas específicas, sino también capacidades cognitivas, emocionales y sociales.</p>
+        </div>
+    </section>
+    
+    <section class="container">
+        <h2 class="section-title">Metodología de Enseñanza</h2>
+        <div class="methodology">
+            <h3 class="methodology-title">Enfoque Pedagógico Integral</h3>
+            <div class="methodology-content">
+                <div class="methodology-item">
+                    <h4><i class="fas fa-book"></i> Clases Teóricas</h4>
+                    <p>Nuestro programa incluye una sólida formación en teoría musical, lectura de partituras, historia y apreciación musical. Estas clases proporcionan las bases fundamentales para una comprensión profunda del lenguaje musical.</p>
+                </div>
+                <div class="methodology-item">
+                    <h4><i class="fas fa-music"></i> Clases Prácticas (Instrumental)</h4>
+                    <p>La aplicación práctica de los conocimientos teóricos se desarrolla mediante sesiones individuales y grupales, donde los estudiantes perfeccionan su técnica, interpretación y expresividad con su instrumento elegido.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="choir-section">
+            <div class="choir-content">
+                <h3>Coro del Colegio Torre Fuerte</h3>
+                <p>Como parte de nuestra oferta musical, dirigimos el Coro del Colegio Torre Fuerte, un espacio donde los estudiantes pueden experimentar la riqueza de la música coral. Realizamos prácticas corales esporádicas durante el año académico, preparando presentaciones para eventos escolares y comunitarios.</p>
+                <p>Esta actividad fomenta el trabajo en equipo, la disciplina colectiva y el desarrollo auditivo, complementando la formación instrumental individual.</p>
+                <a href="#" class="btn">Conocer más</a>
+            </div>
+            <div class="choir-img">
+                <img src="/api/placeholder/500/300" alt="Coro Torre Fuerte">
+            </div>
+        </div>
+    </section>
+    
+    <section class="container">
+        <h2 class="section-title">Cursos Disponibles</h2>
+        <div class="courses">
+            <div class="course-card">
+                <div class="course-icon">
+                    <i class="fas fa-violin"></i>
+                </div>
+                <h3 class="course-title">Violín</h3>
+                <p class="course-desc">Aprende las técnicas fundamentales del violín y desarrolla tu sensibilidad musical con nuestro programa especializado.</p>
+                <div class="course-buttons">
+                    <a href="#" class="btn">Pre-Inscripción</a>
+                    <button class="btn btn-outline" onclick="openModal('violin')">Ver Programa</button>
+                </div>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-icon">
+                    <i class="fas fa-cello"></i>
+                </div>
+                <h3 class="course-title">Violoncello</h3>
+                <p class="course-desc">Descubre el apasionante mundo del violoncello y su profunda expresividad, guiado por profesores de amplia experiencia.</p>
+                <div class="course-buttons">
+                    <a href="#" class="btn">Pre-Inscripción</a>
+                    <button class="btn btn-outline" onclick="openModal('cello')">Ver Programa</button>
+                </div>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-icon">
+                    <i class="fas fa-guitar"></i>
+                </div>
+                <h3 class="course-title">Guitarra Clásica</h3>
+                <p class="course-desc">Domina este versátil instrumento a través de un programa que combina técnica, teoría y práctica interpretativa.</p>
+                <div class="course-buttons">
+                    <a href="#" class="btn">Pre-Inscripción</a>
+                    <button class="btn btn-outline" onclick="openModal('guitarra-clasica')">Ver Programa</button>
+                </div>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-icon">
+                    <i class="fas fa-guitar"></i>
+                </div>
+                <h3 class="course-title">Guitarra Popular</h3>
+                <p class="course-desc">Aprende los ritmos y técnicas de la guitarra popular para acompañamiento e interpretación de diversos géneros musicales.</p>
+                <div class="course-buttons">
+                    <a href="#" class="btn">Pre-Inscripción</a>
+                    <button class="btn btn-outline" onclick="openModal('guitarra-popular')">Ver Programa</button>
+                </div>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-icon">
+                    <i class="fas fa-microphone"></i>
+                </div>
+                <h3 class="course-title">Clases de Canto</h3>
+                <p class="course-desc">Desarrolla tu voz como instrumento musical, mejorando técnica vocal, respiración y expresión interpretativa.</p>
+                <div class="course-buttons">
+                    <a href="#" class="btn">Pre-Inscripción</a>
+                    <button class="btn btn-outline" onclick="openModal('canto')">Ver Programa</button>
+                </div>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-icon">
+                    <i class="fas fa-piano"></i>
+                </div>
+                <h3 class="course-title">Piano</h3>
+                <p class="course-desc">Sumérgete en el estudio del piano con un programa que abarca desde los fundamentos hasta repertorio avanzado.</p>
+                <div class="course-buttons">
+                    <a href="#" class="btn">Pre-Inscripción</a>
+                    <button class="btn btn-outline" onclick="openModal('piano')">Ver Programa</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="container">
+        <h2 class="section-title">Nuestro Equipo</h2>
+        <div class="team">
+            <div class="team-member">
+                <div class="team-img">
+                    <img src="/api/placeholder/150/150" alt="Director Académico">
+                </div>
+                <h3 class="team-name">Prof. Lic. en Filosofía</h3>
+                <p class="team-role">Director Académico / Profesor de Violoncello</p>
+                <p>Licenciado en Filosofía y Profesor Elemental de Música con énfasis en Violoncello. Docente en el Instituto Superior Nacional de Música, donde imparte la Cátedra de Historia de la Música paraguaya, Introducción a la Filosofía y Violoncello Introductorio. Fundador de la Orquesta Filarmónica Ipu Paraguay.</p>
+            </div>
+            
+            <div class="team-member">
+                <div class="team-img">
+                    <img src="/api/placeholder/150/150" alt="Profesor de Guitarra">
+                </div>
+                <h3 class="team-name">Prof. Elías Báez</h3>
+                <p class="team-role">Profesor de Guitarra Clásica y Popular</p>
+                <p>Estudiante de Guitarra Clásica en el Instituto Superior Nacional de Música. Encargado de Arte del Colegio Torre Fuerte. Su pasión y dedicación por la enseñanza musical lo convierten en un guía excepcional para los estudiantes.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="container">
+        <h2 class="section-title">Sobre Nosotros</h2>
+        <div class="about">
+            <div class="about-content">
+                <h3>Formación Integral a través de la Música</h3>
+                <p>En la Academia de Música Torre Fuerte, creemos en el poder transformador de la educación musical. Nuestro enfoque pedagógico combina la excelencia técnica con el desarrollo personal, fomentando valores como la disciplina, la sensibilidad artística y el trabajo en equipo.</p>
+                <p>Contamos con un equipo docente de primer nivel, con amplia experiencia tanto en la interpretación como en la enseñanza musical. Nuestras instalaciones están equipadas con todo lo necesario para garantizar una formación musical de calidad.</p>
+            </div>
+            <div class="about-img">
+                <img src="/api/placeholder/500/300" alt="Academia de Música">
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Academia de Música Torre Fuerte</h3>
+                <p>Formación musical integral en el Colegio Torre Fuerte de San Lorenzo</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contáctanos</h3>
+                <p>Email: info@academiatorrefuerte.edu.py</p>
+                <p>Teléfono: (021) 123-456</p>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Academia de Música Torre Fuerte - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Modal para programas de estudio -->
+    <div id="programModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 class="modal-title" id="modalTitle">Programa de Estudios</h3>
+            <div class="program-list" id="modalContent">
+                <!-- Contenido dinámico -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Botones flotantes -->
+    <div class="floating-buttons">
+        <button class="floating-btn" onclick="scrollToTop()" title="Volver arriba">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <a href="https://wa.me/595984794947" class="floating-btn whatsapp-btn" title="Consultas por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script>
+        // Script para reemplazar los iconos con notas musicales cuando no están disponibles
+        document.addEventListener('DOMContentLoaded', function() {
+            // Comprobar si los iconos existen
+            const violinIcon = document.querySelector('.fa-violin');
+            const celloIcon = document.querySelector('.fa-cello');
+            const pianoIcon = document.querySelector('.fa-piano');
+            
+            // Reemplazar iconos si no existen
+            if (!violinIcon.offsetParent) {
+                document.querySelector('.fa-violin').classList.remove('fa-violin');
+                document.querySelector('.course-icon:nth-child(1)').innerHTML = '🎻';
+            }
+            
+            if (!celloIcon.offsetParent) {
+                document.querySelector('.fa-cello').classList.remove('fa-cello');
+                document.querySelector('.fa-cello').parentNode.innerHTML = '🎻';
+            }
+            
+            if (!pianoIcon.offsetParent) {
+                document.querySelector('.fa-piano').classList.remove('fa-piano');
+                document.querySelector('.fa-piano').parentNode.innerHTML = '🎹';
+            }
+        });
+
+        // Funciones para el modal
+        function openModal(course) {
+            const modal = document.getElementById('programModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+            
+            // Configurar contenido según el curso seleccionado
+            switch(course) {
+                case 'violin':
+                    modalTitle.textContent = 'Programa de Violín - Primer Año';
+                    modalContent.innerHTML = `
+                        <h4>Primer Trimestre</h4>
+                        <ul>
+                            <li>Introducción al violín y sus partes</li>
+                            <li>Posición correcta del instrumento y arco</li>
+                            <li>Ejercicios de cuerdas al aire</li>
+                            <li>Escalas básicas en primera posición</li>
+                            <li>Lectura de partituras simples</li>
+                        </ul>
+                        
+                        <h4>Segundo Trimestre</h4>
+                        <ul>
+                            <li>Técnica de dedos en primera posición</li>
+                            <li>Estudios sencillos de Ševčík</li>
+                            <li>Introducción al vibrato</li>
+                            <li>Piezas sencillas del repertorio clásico</li>
+                            <li>Teoría musical aplicada</li>
+                        </ul>
+                        
+                        <h4>Tercer Trimestre</h4>
+                        <ul>
+                            <li>Desarrollo de la técnica de arco</li>
+                            <li>Escalas y arpegios en dos octavas</li>
+                            <li>Piezas de mayor complejidad</li>
+                            <li>Iniciación a la música de cámara</li>
+                            <li>Preparación para presentación final</li>
+                        </ul>
+                    `;
+                    break;
+                    
+                case 'cello':
+                    modalTitle.textContent = 'Programa de Violoncello - Primer Año';
+                    modalContent.innerHTML = `
+                        <h4>Primer Trimestre</h4>
+                        <ul>
+                            <li>Conocimiento del instrumento y sus partes</li>
+                            <li>Posición correcta del cello y arco</li>
+                            <li>Ejercicios de cuerdas al aire</li>
+                            <li>Escalas básicas en primera posición</li>
+                            <li>Introducción a la lectura musical</li>
+                        </ul>
+                        
+                        <h4>Segundo Trimestre</h4>
+                        <ul>
+                            <li>Técnica de mano izquierda en primera posición</li>
+                            <li>Estudios básicos de Dotzauer</li>
+                            <li>Desarrollo del sonido y expresión</li>
+                            <li>Piezas sencillas del repertorio</li>
+                            <li>Teoría musical aplicada al cello</li>
+                        </ul>
+                        
+                        <h4>Tercer Trimestre</h4>
+                        <ul>
+                            <li>Técnica de arco más avanzada</li>
+                            <li>Escalas y arpegios en dos octavas</li>
+                            <li>Introducción a posiciones superiores</li>
+                            <li>Música de cámara básica</li>
+                            <li>Preparación para recital de fin de año</li>
+                        </ul>
+                    `;
+                    break;
+                    
+                case 'guitarra-clasica':
+                    modalTitle.textContent = 'Programa de Guitarra Clásica - Primer Año';
+                    modalContent.innerHTML = `
+                        <h4>Primer Trimestre</h4>
+                        <ul>
+                            <li>Conocimiento del instrumento y sus partes</li>
+                            <li>Posición correcta de manos y cuerpo</li>
+                            <li>Ejercicios de digitación independiente</li>
+                            <li>Acordes básicos y escalas simples</li>
+                            <li>Lectura de tablatura y partitura</li>
+                        </ul>
+                        
+                        <h4>Segundo Trimestre</h4>
+                        <ul>
+                            <li>Técnica de mano derecha: apoyando y tirando</li>
+                            <li>Estudios sencillos de Carcassi</li>
+                            <li>Acordes mayores y menores en primera posición</li>
+                            <li>Piezas del repertorio renacentista y barroco</li>
+                            <li>Armonía básica aplicada</li>
+                        </ul>
+                        
+                        <h4>Tercer Trimestre</h4>
+                        <ul>
+                            <li>Técnica de ligados y ornamentos</li>
+                            <li>Escalas mayores y menores en primera posición</li>
+                            <li>Piezas del repertorio clásico y romántico</li>
+                            <li>Introducción a la música de cámara</li>
+                            <li>Preparación para presentación final</li>
+                        </ul>
+                    `;
+                    break;
+                    
+                case 'guitarra-popular':
+                    modalTitle.textContent = 'Programa de Guitarra Popular - Primer Año';
+                    modalContent.innerHTML = `
+                        <h4>Primer Trimestre</h4>
+                        <ul>
+                            <li>Conocimiento del instrumento y sus partes</li>
+                            <li>Posición correcta para guitarra popular</li>
+                            <li>Rasgueos básicos y patrones rítmicos</li>
+                            <li>Acordes mayores y menores abiertos</li>
+                            <li>Introducción a diferentes estilos musicales</li>
+                        </ul>
+                        
+                        <h4>Segundo Trimestre</h4>
+                        <ul>
+                            <li>Técnica de acompañamiento</li>
+                            <li>Acordes con cejilla</li>
+                            <li>Patrones rítmicos avanzados</li>
+                            <li>Introducción a la improvisación</li>
+                            <li>Repertorio de canciones populares</li>
+                        </ul>
+                        
+                        <h4>Tercer Trimestre</h4>
+                        <ul>
+                            <li>Técnicas de fingerstyle básico</li>
+                            <li>Acordes extendidos y alterados</li>
+                            <li>Improvisación sobre progresiones armónicas</li>
+                            <li>Estilos específicos (folklore, rock, pop, etc.)</li>
+                            <li>Preparación para presentación final</li>
+                        </ul>
+                    `;
+                    break;
+                    
+                case 'canto':
+                    modalTitle.textContent = 'Programa de Canto - Primer Año';
+                    modalContent.innerHTML = `
+                        <h4>Primer Trimestre</h4>
+                        <ul>
+                            <li>Anatomía básica del aparato fonador</li>
+                            <li>Técnica de respiración diafragmática</li>
+                            <li>Ejercicios de vocalización y articulación</li>
+                            <li>Postura correcta para el canto</li>
+                            <li>Repertorio sencillo adaptado al alumno</li>
+                        </ul>
+                        
+                        <h4>Segundo Trimestre</h4>
+                        <ul>
+                            <li>Desarrollo del registro vocal</li>
+                            <li>Ejercicios de resonancia y proyección</li>
+                            <li>Interpretación básica de partituras</li>
+                            <li>Repertorio según estilo vocal</li>
+                            <li>Introducción a la teoría musical aplicada</li>
+                        </ul>
+                        
+                        <h4>Tercer Trimestre</h4>
+                        <ul>
+                            <li>Técnica vocal avanzada</li>
+                            <li>Expresión e interpretación</li>
+                            <li>Repertorio más exigente</li>
+                            <li>Preparación para presentación en público</li>
+                            <li>Introducción a la música coral</li>
+                        </ul>
+                    `;
+                    break;
+                    
+                case 'piano':
+                    modalTitle.textContent = 'Programa de Piano - Primer Año';
+                    modalContent.innerHTML = `
+                        <h4>Primer Trimestre</h4>
+                        <ul>
+                            <li>Conocimiento del instrumento y su mecánica</li>
+                            <li>Posición correcta de manos y cuerpo</li>
+                            <li>Ejercicios de independencia y coordinación</li>
+                            <li>Lectura de pentagramas y figuras rítmicas</li>
+                            <li>Piezas sencillas con ambas manos</li>
+                        </ul>
+                        
+                        <h4>Segundo Trimestre</h4>
+                        <ul>
+                            <li>Escalas mayores y menores básicas</li>
+                            <li>Acordes y arpegios sencillos</li>
+                            <li>Estudios técnicos de Czerny</li>
+                            <li>Piezas del repertorio clásico elemental</li>
+                            <li>Teoría musical aplicada al piano</li>
+                        </ul>
+                        
+                        <h4>Tercer Trimestre</h4>
+                        <ul>
+                            <li>Técnica de pedal</li>
+                            <li>Escalas en octavas</li>
+                            <li>Piezas más complejas del repertorio</li>
+                            <li>Introducción a la improvisación</li>
+                            <li>Preparación para recital de fin de año</li>
+                        </ul>
+                    `;
+                    break;
+            }
+            
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('programModal').style.display = 'none';
+        }
+
+        // Cerrar modal al hacer clic fuera del contenido
+        window.onclick = function(event) {
+            const modal = document.getElementById('programModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Función para volver al inicio
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Mostrar/ocultar botón de subir según scroll
+        window.onscroll = function() {
+            const scrollBtn = document.querySelector('.floating-btn:first-child');
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollBtn.style.display = 'flex';
+            } else {
+                scrollBtn.style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>
