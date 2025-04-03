@@ -1,32 +1,79 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academia de Música Torre Fuerte</title>
     <style>
         :root {
-            --primary-color: #1a2639;
-            --secondary-color: #d4af37;
-            --accent-color: #3f4e65;
-            --light-color: #f5f5f5;
+            /* Colores principales */
+            --primary-color: #111E3E;
+            /* Azul oscuro (principal) */
+            --secondary-color: #F5943A;
+            /* Naranja brillante (acento) */
+            --accent-color: #A81616;
+            /* Rojo vino (énfasis) */
+            --light-color: #CFCFCF;
+            /* Gris claro (fondo/neutral) */
+
+            /* Colores adicionales para mejor contraste */
+            --dark-text: #222222;
+            /* Texto oscuro */
+            --light-text: #FFFFFF;
+            /* Texto claro */
+            --hover-primary: #0E1830;
+            /* Hover azul más oscuro */
+            --hover-secondary: #E07D2A;
+            /* Hover naranja más oscuro */
+
+            /* Tipografía */
             --font-main: 'Playfair Display', Georgia, serif;
             --font-body: 'Raleway', sans-serif;
+
+            /* Sombras */
+            --shadow-sm: 0 2px 5px rgba(17, 30, 62, 0.1);
+            --shadow-md: 0 5px 15px rgba(17, 30, 62, 0.2);
+            --shadow-lg: 0 10px 25px rgba(17, 30, 62, 0.3);
+
+            /* Bordes */
+            --border-radius: 8px;
+            --border-primary: 2px solid var(--primary-color);
+            --border-accent: 2px solid var(--accent-color);
+
+            /* Transiciones */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
         }
-        
+
+        /* Reset y estilos base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: var(--font-body);
             line-height: 1.6;
             color: #333;
             background-color: var(--light-color);
         }
-        
+
+        /* Layout principal */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        /* Encabezado */
         header {
             background-color: var(--primary-color);
             color: white;
@@ -35,32 +82,38 @@
             background-image: linear-gradient(rgba(26, 38, 57, 0.9), rgba(26, 38, 57, 0.9)), url('/api/placeholder/1200/400');
             background-size: cover;
             background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        
-        .logo {
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .logo-img {
+            height: 80px;
+            margin-right: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .logo-text {
             font-family: var(--font-main);
             font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 1rem;
             color: var(--secondary-color);
+            transition: all 0.3s ease;
         }
-        
+
         .tagline {
             font-style: italic;
             margin-bottom: 2rem;
         }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 0;
-        }
-        
-        section {
-            margin-bottom: 4rem;
-        }
-        
+
+        /* Títulos y texto */
         .section-title {
             font-family: var(--font-main);
             font-size: 2rem;
@@ -69,7 +122,7 @@
             text-align: center;
             position: relative;
         }
-        
+
         .section-title:after {
             content: "";
             display: block;
@@ -78,7 +131,7 @@
             background-color: var(--secondary-color);
             margin: 10px auto;
         }
-        
+
         .intro-text {
             text-align: center;
             margin-bottom: 3rem;
@@ -86,7 +139,8 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+
+        /* Metodología */
         .methodology {
             background-color: var(--light-color);
             border-radius: 8px;
@@ -94,27 +148,32 @@
             margin-bottom: 3rem;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
-        
+
         .methodology-title {
             font-family: var(--font-main);
             color: var(--primary-color);
             text-align: center;
             margin-bottom: 1.5rem;
         }
-        
+
         .methodology-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
-        
+
         .methodology-item {
             background-color: white;
             padding: 1.5rem;
             border-radius: 8px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
-        
+
+        .methodology-item:hover {
+            transform: translateY(-5px);
+        }
+
         .methodology-item h4 {
             color: var(--secondary-color);
             font-family: var(--font-main);
@@ -122,11 +181,12 @@
             display: flex;
             align-items: center;
         }
-        
+
         .methodology-item h4 i {
             margin-right: 10px;
         }
-        
+
+        /* Coro */
         .choir-section {
             background-color: white;
             border-radius: 8px;
@@ -138,64 +198,106 @@
             gap: 2rem;
             align-items: center;
         }
-        
+
         .choir-content h3 {
             font-family: var(--font-main);
             color: var(--primary-color);
             margin-bottom: 1rem;
         }
-        
+
         .choir-img {
             border-radius: 8px;
             overflow: hidden;
+            transition: transform var(--transition-normal);
+            max-width: 100%;
+            /* Asegura que no exceda el contenedor */
+            margin: 0 auto;
+            /* Centrado horizontal */
+            display: block;
+            /* Elimina espacios fantasma */
+            box-shadow: var(--shadow-md);
+            /* Borde azul oscuro */
         }
-        
+
+
+        .choir-img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Versión móvil */
+        @media (max-width: 768px) {
+            .choir-img {
+                width: 100%;
+                /* Ocupa todo el ancho disponible */
+                max-width: 400px;
+                /* Limita el ancho máximo */
+                margin: 1.5rem auto;
+                /* Espaciado vertical + centrado */
+                order: -1;
+                /* Lo coloca arriba en el flex parent */
+            }
+
+            /* Ajuste para contenedor padre en móvil */
+            .choir-section {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Cursos */
         .courses {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
-        
+
         .course-card {
             background-color: white;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s ease;
             text-align: center;
             padding: 2rem;
             position: relative;
         }
-        
+
         .course-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
         }
-        
+
         .course-icon {
             font-size: 3rem;
             color: var(--primary-color);
             margin-bottom: 1rem;
+            transition: transform 0.3s ease;
         }
-        
+
+        .course-card:hover .course-icon {
+            transform: scale(1.1);
+        }
+
         .course-title {
             font-family: var(--font-main);
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: var(--primary-color);
         }
-        
+
         .course-desc {
             margin-bottom: 1.5rem;
             font-size: 0.9rem;
         }
-        
+
         .course-buttons {
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
         }
-        
+
+        /* Botones */
         .btn {
             display: inline-block;
             background-color: var(--secondary-color);
@@ -204,51 +306,61 @@
             text-decoration: none;
             border-radius: 30px;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             text-align: center;
+            border: none;
+            cursor: pointer;
         }
-        
+
         .btn:hover {
             background-color: var(--primary-color);
             color: var(--secondary-color);
+            transform: translateY(-2px);
         }
-        
+
         .btn-outline {
             background-color: transparent;
             border: 2px solid var(--secondary-color);
             color: var(--primary-color);
         }
-        
+
         .btn-outline:hover {
             background-color: var(--secondary-color);
             color: var(--primary-color);
         }
-        
+
+        /* Sobre nosotros */
         .about {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 3rem;
             align-items: center;
         }
-        
+
         .about-img {
             border-radius: 8px;
             overflow: hidden;
+            transition: transform 0.3s ease;
         }
-        
+
+        .about-img:hover {
+            transform: scale(1.02);
+        }
+
         .about-content h3 {
             font-family: var(--font-main);
             font-size: 1.8rem;
             margin-bottom: 1rem;
             color: var(--primary-color);
         }
-        
+
+        /* Equipo */
         .team {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
-        
+
         .team-member {
             background-color: white;
             border-radius: 8px;
@@ -256,36 +368,67 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
             padding: 2rem;
+            transition: transform 0.3s ease;
         }
-        
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
         .team-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             margin: 0 auto 1.5rem;
             overflow: hidden;
+            border: 3px solid var(--secondary-color);
+            /* Borde naranja */
+            box-shadow: var(--shadow-sm);
+            object-fit: cover;
+            /* Asegura que la imagen cubra el espacio */
+            display: block;
+            /* Para centrado perfecto */
+            transition: all var(--transition-normal);
+            background-color: var(--light-color);
+            /* Fondo gris para placeholder */
         }
-        
+
+        .team-member:hover .team-img {
+            transform: scale(1.05);
+            border-color: var(--accent-color);
+            /* Cambia a rojo al hacer hover */
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Para asegurar que las imágenes se carguen centradas */
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
         .team-name {
             font-family: var(--font-main);
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
             color: var(--primary-color);
         }
-        
+
         .team-role {
             font-style: italic;
             color: var(--accent-color);
             margin-bottom: 1rem;
         }
-        
+
+        /* Pie de página */
         footer {
             background-color: var(--primary-color);
             color: white;
             padding: 3rem 0;
             text-align: center;
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -294,20 +437,20 @@
             margin: 0 auto;
             padding: 0 2rem;
         }
-        
+
         .footer-section h3 {
             font-family: var(--font-main);
             color: var(--secondary-color);
             margin-bottom: 1rem;
         }
-        
+
         .footer-bottom {
             margin-top: 2rem;
             padding-top: 1rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        /* Modal styles */
+
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -317,9 +460,10 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.7);
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
         }
-        
+
         .modal-content {
             background-color: var(--light-color);
             margin: 5% auto;
@@ -327,10 +471,23 @@
             border-radius: 8px;
             width: 80%;
             max-width: 700px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
             position: relative;
+            animation: modalFadeIn 0.3s ease-out;
         }
-        
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .close {
             position: absolute;
             top: 15px;
@@ -338,33 +495,38 @@
             font-size: 1.5rem;
             color: var(--primary-color);
             cursor: pointer;
+            transition: color 0.3s ease;
         }
-        
+
+        .close:hover {
+            color: var(--secondary-color);
+        }
+
         .modal-title {
             font-family: var(--font-main);
             color: var(--primary-color);
             margin-bottom: 1.5rem;
             text-align: center;
         }
-        
+
         .program-list {
             margin-bottom: 1.5rem;
         }
-        
+
         .program-list h4 {
             color: var(--secondary-color);
             margin: 1rem 0 0.5rem;
         }
-        
+
         .program-list ul {
             padding-left: 1.5rem;
         }
-        
+
         .program-list li {
             margin-bottom: 0.3rem;
         }
-        
-        /* Floating buttons */
+
+        /* Botones flotantes */
         .floating-buttons {
             position: fixed;
             bottom: 30px;
@@ -374,7 +536,7 @@
             gap: 15px;
             z-index: 99;
         }
-        
+
         .floating-btn {
             width: 50px;
             height: 50px;
@@ -385,66 +547,127 @@
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             border: none;
         }
-        
+
         .floating-btn:hover {
             background-color: var(--primary-color);
             color: var(--secondary-color);
             transform: scale(1.1);
         }
-        
+
         .whatsapp-btn {
             background-color: #25D366;
             color: white;
         }
-        
+
         .whatsapp-btn:hover {
             background-color: #128C7E;
-            color: white;
         }
-        
+
+        /* Estilos responsive */
         @media (max-width: 768px) {
-            .courses, .about, .team, .methodology-content, .choir-section {
+            .logo-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo-img {
+                height: 120px;
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .logo-text {
+                font-size: 2rem;
+            }
+
+            .courses,
+            .about,
+            .team,
+            .methodology-content,
+            .choir-section {
                 grid-template-columns: 1fr;
             }
-            
+
             .about-img {
                 order: -1;
             }
-            
+
             .modal-content {
                 width: 95%;
                 margin: 10% auto;
+                padding: 1.5rem;
             }
-            
+
             .floating-buttons {
                 bottom: 20px;
                 right: 20px;
             }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .floating-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header>
         <div class="container">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo Academia Torre Fuerte" class="logo-img">
+                <!-- <h1 class="logo-text">Academia de Música<br>Torre Fuerte</h1> -->
+            </div>
             <h1 class="logo">Academia de Música Torre Fuerte</h1>
             <p class="tagline">Formando artistas integrales para el futuro</p>
         </div>
     </header>
-    
+
     <section class="container">
         <h2 class="section-title">Nuestra Misión</h2>
         <div class="intro-text">
-            <p>Nuestra iniciativa de educación musical se alinea perfectamente con la visión del Colegio Torre Fuerte de San Lorenzo. La música, como expresión artística universal, constituye un pilar fundamental en la formación integral de la persona. A través de ella, los estudiantes pueden desarrollar no solo habilidades técnicas específicas, sino también capacidades cognitivas, emocionales y sociales.</p>
+            <p>Nuestra iniciativa de educación musical se alinea perfectamente con la visión del Colegio Torre Fuerte.
+                La música, como expresión artística universal, constituye un pilar fundamental en la
+                formación integral de la persona. A través de ella, los estudiantes pueden desarrollar no solo
+                habilidades técnicas específicas, sino también capacidades cognitivas, emocionales y sociales.</p>
         </div>
     </section>
-    
+
     <section class="container">
         <h2 class="section-title">Metodología de Enseñanza</h2>
         <div class="methodology">
@@ -452,28 +675,37 @@
             <div class="methodology-content">
                 <div class="methodology-item">
                     <h4><i class="fas fa-book"></i> Clases Teóricas</h4>
-                    <p>Nuestro programa incluye una sólida formación en teoría musical, lectura de partituras, historia y apreciación musical. Estas clases proporcionan las bases fundamentales para una comprensión profunda del lenguaje musical.</p>
+                    <p>Nuestro programa incluye una sólida formación en teoría musical, lectura de partituras, historia
+                        y apreciación musical. Estas clases proporcionan las bases fundamentales para una comprensión
+                        profunda del lenguaje musical.</p>
                 </div>
                 <div class="methodology-item">
                     <h4><i class="fas fa-music"></i> Clases Prácticas (Instrumental)</h4>
-                    <p>La aplicación práctica de los conocimientos teóricos se desarrolla mediante sesiones individuales y grupales, donde los estudiantes perfeccionan su técnica, interpretación y expresividad con su instrumento elegido.</p>
+                    <p>La aplicación práctica de los conocimientos teóricos se desarrolla mediante sesiones individuales
+                        y grupales, donde los estudiantes perfeccionan su técnica, interpretación y expresividad con su
+                        instrumento elegido.</p>
                 </div>
             </div>
         </div>
-        
+
         <div class="choir-section">
             <div class="choir-content">
-                <h3>Coro del Colegio Torre Fuerte</h3>
-                <p>Como parte de nuestra oferta musical, dirigimos el Coro del Colegio Torre Fuerte, un espacio donde los estudiantes pueden experimentar la riqueza de la música coral. Realizamos prácticas corales esporádicas durante el año académico, preparando presentaciones para eventos escolares y comunitarios.</p>
-                <p>Esta actividad fomenta el trabajo en equipo, la disciplina colectiva y el desarrollo auditivo, complementando la formación instrumental individual.</p>
+                <h3>Coro Académico del Colegio Torre Fuerte</h3>
+                <p>Como parte de nuestra oferta musical, tenemos planeado la conformación del Coro del Colegio Torre
+                    Fuerte, un espacio donde
+                    los estudiantes pueden experimentar la riqueza de la música coral. Realizamos prácticas corales
+                    esporádicas durante el año académico, preparando presentaciones para eventos escolares y
+                    comunitarios.</p>
+                <p>Esta actividad fomenta el trabajo en equipo, la disciplina colectiva y el desarrollo auditivo,
+                    complementando la formación instrumental individual.</p></br>
                 <a href="#" class="btn">Conocer más</a>
             </div>
             <div class="choir-img">
-                <img src="/api/placeholder/500/300" alt="Coro Torre Fuerte">
+                <img src="logo_coro.png" alt="Coro Torre Fuerte">
             </div>
         </div>
     </section>
-    
+
     <section class="container">
         <h2 class="section-title">Cursos Disponibles</h2>
         <div class="courses">
@@ -482,122 +714,157 @@
                     <i class="fas fa-violin"></i>
                 </div>
                 <h3 class="course-title">Violín</h3>
-                <p class="course-desc">Aprende las técnicas fundamentales del violín y desarrolla tu sensibilidad musical con nuestro programa especializado.</p>
+                <p class="course-desc">Aprende las técnicas fundamentales del violín y desarrolla tu sensibilidad
+                    musical con nuestro programa especializado.</p>
                 <div class="course-buttons">
-                    <a href="#" class="btn">Pre-Inscripción</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhKljBM-EZEXUmF2h2styc9OuzGLpbbL_CcjFY_EmY_sfYaA/viewform"
+                        class="btn">Pre-Inscripción</a>
                     <button class="btn btn-outline" onclick="openModal('violin')">Ver Programa</button>
                 </div>
             </div>
-            
+
             <div class="course-card">
                 <div class="course-icon">
                     <i class="fas fa-cello"></i>
                 </div>
                 <h3 class="course-title">Violoncello</h3>
-                <p class="course-desc">Descubre el apasionante mundo del violoncello y su profunda expresividad, guiado por profesores de amplia experiencia.</p>
+                <p class="course-desc">Descubre el apasionante mundo del violoncello y su profunda expresividad, guiado
+                    por profesores de amplia experiencia.</p>
                 <div class="course-buttons">
-                    <a href="#" class="btn">Pre-Inscripción</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhKljBM-EZEXUmF2h2styc9OuzGLpbbL_CcjFY_EmY_sfYaA/viewform"
+                        class="btn">Pre-Inscripción</a>
                     <button class="btn btn-outline" onclick="openModal('cello')">Ver Programa</button>
                 </div>
             </div>
-            
+
             <div class="course-card">
                 <div class="course-icon">
                     <i class="fas fa-guitar"></i>
                 </div>
                 <h3 class="course-title">Guitarra Clásica</h3>
-                <p class="course-desc">Domina este versátil instrumento a través de un programa que combina técnica, teoría y práctica interpretativa.</p>
+                <p class="course-desc">Domina este versátil instrumento a través de un programa que combina técnica,
+                    teoría y práctica interpretativa.</p>
                 <div class="course-buttons">
-                    <a href="#" class="btn">Pre-Inscripción</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhKljBM-EZEXUmF2h2styc9OuzGLpbbL_CcjFY_EmY_sfYaA/viewform"
+                        class="btn">Pre-Inscripción</a>
                     <button class="btn btn-outline" onclick="openModal('guitarra-clasica')">Ver Programa</button>
                 </div>
             </div>
-            
+
             <div class="course-card">
                 <div class="course-icon">
                     <i class="fas fa-guitar"></i>
                 </div>
                 <h3 class="course-title">Guitarra Popular</h3>
-                <p class="course-desc">Aprende los ritmos y técnicas de la guitarra popular para acompañamiento e interpretación de diversos géneros musicales.</p>
+                <p class="course-desc">Aprende los ritmos y técnicas de la guitarra popular para acompañamiento e
+                    interpretación de diversos géneros musicales.</p>
                 <div class="course-buttons">
-                    <a href="#" class="btn">Pre-Inscripción</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhKljBM-EZEXUmF2h2styc9OuzGLpbbL_CcjFY_EmY_sfYaA/viewform"
+                        class="btn">Pre-Inscripción</a>
                     <button class="btn btn-outline" onclick="openModal('guitarra-popular')">Ver Programa</button>
                 </div>
             </div>
-            
+
             <div class="course-card">
                 <div class="course-icon">
                     <i class="fas fa-microphone"></i>
                 </div>
                 <h3 class="course-title">Clases de Canto</h3>
-                <p class="course-desc">Desarrolla tu voz como instrumento musical, mejorando técnica vocal, respiración y expresión interpretativa.</p>
+                <p class="course-desc">Desarrolla tu voz como instrumento musical, mejorando técnica vocal, respiración
+                    y expresión interpretativa.</p>
                 <div class="course-buttons">
-                    <a href="#" class="btn">Pre-Inscripción</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhKljBM-EZEXUmF2h2styc9OuzGLpbbL_CcjFY_EmY_sfYaA/viewform"
+                        class="btn">Pre-Inscripción</a>
                     <button class="btn btn-outline" onclick="openModal('canto')">Ver Programa</button>
                 </div>
             </div>
-            
+
             <div class="course-card">
                 <div class="course-icon">
                     <i class="fas fa-piano"></i>
                 </div>
                 <h3 class="course-title">Piano</h3>
-                <p class="course-desc">Sumérgete en el estudio del piano con un programa que abarca desde los fundamentos hasta repertorio avanzado.</p>
+                <p class="course-desc">Sumérgete en el estudio del piano con un programa que abarca desde los
+                    fundamentos hasta repertorio avanzado.</p>
                 <div class="course-buttons">
-                    <a href="#" class="btn">Pre-Inscripción</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhKljBM-EZEXUmF2h2styc9OuzGLpbbL_CcjFY_EmY_sfYaA/viewform"
+                        class="btn">Pre-Inscripción</a>
                     <button class="btn btn-outline" onclick="openModal('piano')">Ver Programa</button>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <section class="container">
         <h2 class="section-title">Nuestro Equipo</h2>
         <div class="team">
             <div class="team-member">
                 <div class="team-img">
-                    <img src="/api/placeholder/150/150" alt="Director Académico">
+                    <img src="juliofranco.png" alt="Director Académico">
                 </div>
-                <h3 class="team-name">Prof. Lic. en Filosofía</h3>
+                <h3 class="team-name">Prof. Lic. Julio Franco</h3>
                 <p class="team-role">Director Académico / Profesor de Violoncello</p>
-                <p>Licenciado en Filosofía y Profesor Elemental de Música con énfasis en Violoncello. Docente en el Instituto Superior Nacional de Música, donde imparte la Cátedra de Historia de la Música paraguaya, Introducción a la Filosofía y Violoncello Introductorio. Fundador de la Orquesta Filarmónica Ipu Paraguay.</p>
+                <p>Licenciado en Filosofía y Profesor Elemental de Música con énfasis en Violoncello. Docente en el
+                    Instituto Superior Nacional de Música (Anterior Conservatorio Nacional), donde imparte la Cátedra de
+                    Historia de la Música paraguaya,
+                    Introducción a la Filosofía y Violoncello Introductorio. Fundador de la <a
+                        href="https://www.ipupaaraguay.org">Orquesta Filarmónica Ipu
+                        Paraguay</a>.</p>
             </div>
-            
+
             <div class="team-member">
                 <div class="team-img">
-                    <img src="/api/placeholder/150/150" alt="Profesor de Guitarra">
+                    <img src="prof_elias.jpeg" alt="Profesor de Guitarra">
                 </div>
                 <h3 class="team-name">Prof. Elías Báez</h3>
                 <p class="team-role">Profesor de Guitarra Clásica y Popular</p>
-                <p>Estudiante de Guitarra Clásica en el Instituto Superior Nacional de Música. Encargado de Arte del Colegio Torre Fuerte. Su pasión y dedicación por la enseñanza musical lo convierten en un guía excepcional para los estudiantes.</p>
+                <p>Estudiante de Guitarra Clásica en el Instituto Superior Nacional de Música. Encargado de Arte del
+                    Colegio Torre Fuerte. Su pasión y dedicación por la enseñanza musical lo convierten en un guía
+                    excepcional para los estudiantes.</p>
             </div>
         </div>
     </section>
-    
+
+    <section class="container">
+        <h2 class="section-title">Requisitos</h2>
+        <div class="team">
+            <div class="team-member">
+
+                <p>Lo ideal, contar con el instrumento, pero si no se cuenta con él, solo necesitas tener buena
+                    voluntad y compromiso con el aprendizaje.</p>
+            </div>
+
+    </section>
+
     <section class="container">
         <h2 class="section-title">Sobre Nosotros</h2>
         <div class="about">
             <div class="about-content">
                 <h3>Formación Integral a través de la Música</h3>
-                <p>En la Academia de Música Torre Fuerte, creemos en el poder transformador de la educación musical. Nuestro enfoque pedagógico combina la excelencia técnica con el desarrollo personal, fomentando valores como la disciplina, la sensibilidad artística y el trabajo en equipo.</p>
-                <p>Contamos con un equipo docente de primer nivel, con amplia experiencia tanto en la interpretación como en la enseñanza musical. Nuestras instalaciones están equipadas con todo lo necesario para garantizar una formación musical de calidad.</p>
+                <p>En la Academia de Música Torre Fuerte, creemos en el poder transformador de la educación musical.
+                    Nuestro enfoque pedagógico combina la excelencia técnica con el desarrollo personal, fomentando
+                    valores como la disciplina, la sensibilidad artística y el trabajo en equipo.</p>
+                <p>Contamos con un equipo docente de primer nivel, con amplia experiencia tanto en la interpretación
+                    como en la enseñanza musical. Nuestras instalaciones están equipadas con todo lo necesario para
+                    garantizar una formación musical de calidad.</p>
             </div>
             <div class="about-img">
-                <img src="/api/placeholder/500/300" alt="Academia de Música">
+                <img src="logo.png" alt="Academia de Música">
             </div>
         </div>
     </section>
-    
+
     <footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Academia de Música Torre Fuerte</h3>
-                <p>Formación musical integral en el Colegio Torre Fuerte de San Lorenzo</p>
+                <p>Formación musical integral en el Colegio Torre Fuerte.</p>
             </div>
             <div class="footer-section">
                 <h3>Contáctanos</h3>
-                <p>Email: info@academiatorrefuerte.edu.py</p>
-                <p>Teléfono: (021) 123-456</p>
+                <p>Diego Pizzurno</p>
+                <p>Email: diego.pizzurno@torrefuerte.edu.py</p>
+                <p>Teléfono: 0984-794947</p>
             </div>
             <div class="footer-section">
                 <h3>Síguenos</h3>
@@ -636,23 +903,23 @@
 
     <script>
         // Script para reemplazar los iconos con notas musicales cuando no están disponibles
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Comprobar si los iconos existen
             const violinIcon = document.querySelector('.fa-violin');
             const celloIcon = document.querySelector('.fa-cello');
             const pianoIcon = document.querySelector('.fa-piano');
-            
+
             // Reemplazar iconos si no existen
             if (!violinIcon.offsetParent) {
                 document.querySelector('.fa-violin').classList.remove('fa-violin');
                 document.querySelector('.course-icon:nth-child(1)').innerHTML = '🎻';
             }
-            
+
             if (!celloIcon.offsetParent) {
                 document.querySelector('.fa-cello').classList.remove('fa-cello');
                 document.querySelector('.fa-cello').parentNode.innerHTML = '🎻';
             }
-            
+
             if (!pianoIcon.offsetParent) {
                 document.querySelector('.fa-piano').classList.remove('fa-piano');
                 document.querySelector('.fa-piano').parentNode.innerHTML = '🎹';
@@ -664,9 +931,9 @@
             const modal = document.getElementById('programModal');
             const modalTitle = document.getElementById('modalTitle');
             const modalContent = document.getElementById('modalContent');
-            
+
             // Configurar contenido según el curso seleccionado
-            switch(course) {
+            switch (course) {
                 case 'violin':
                     modalTitle.textContent = 'Programa de Violín - Primer Año';
                     modalContent.innerHTML = `
@@ -698,7 +965,7 @@
                         </ul>
                     `;
                     break;
-                    
+
                 case 'cello':
                     modalTitle.textContent = 'Programa de Violoncello - Primer Año';
                     modalContent.innerHTML = `
@@ -730,7 +997,7 @@
                         </ul>
                     `;
                     break;
-                    
+
                 case 'guitarra-clasica':
                     modalTitle.textContent = 'Programa de Guitarra Clásica - Primer Año';
                     modalContent.innerHTML = `
@@ -762,7 +1029,7 @@
                         </ul>
                     `;
                     break;
-                    
+
                 case 'guitarra-popular':
                     modalTitle.textContent = 'Programa de Guitarra Popular - Primer Año';
                     modalContent.innerHTML = `
@@ -794,7 +1061,7 @@
                         </ul>
                     `;
                     break;
-                    
+
                 case 'canto':
                     modalTitle.textContent = 'Programa de Canto - Primer Año';
                     modalContent.innerHTML = `
@@ -826,7 +1093,7 @@
                         </ul>
                     `;
                     break;
-                    
+
                 case 'piano':
                     modalTitle.textContent = 'Programa de Piano - Primer Año';
                     modalContent.innerHTML = `
@@ -859,7 +1126,7 @@
                     `;
                     break;
             }
-            
+
             modal.style.display = 'block';
         }
 
@@ -868,7 +1135,7 @@
         }
 
         // Cerrar modal al hacer clic fuera del contenido
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             const modal = document.getElementById('programModal');
             if (event.target == modal) {
                 modal.style.display = 'none';
@@ -884,7 +1151,7 @@
         }
 
         // Mostrar/ocultar botón de subir según scroll
-        window.onscroll = function() {
+        window.onscroll = function () {
             const scrollBtn = document.querySelector('.floating-btn:first-child');
             if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
                 scrollBtn.style.display = 'flex';
@@ -894,4 +1161,5 @@
         };
     </script>
 </body>
+
 </html>
