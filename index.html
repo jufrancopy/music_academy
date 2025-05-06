@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academia de Música Torre Fuerte</title>
+    <title>Academia de Música Torrefuerte</title>
     <style>
         :root {
             /* Colores principales */
@@ -101,6 +101,19 @@
             max-width: 100%;
             height: auto;
         }
+
+        .course-icon {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .course-image {
+            width: 60px;        /* Control estricto del tamaño */
+            height: auto;       /* Mantiene proporción */
+            object-fit: contain;
+            display: inline-block;
+        }
+
 
         .logo-text {
             font-family: var(--font-main);
@@ -652,10 +665,10 @@
     <header>
         <div class="container">
             <div class="logo-container">
-                <img src="logo.png" alt="Logo Academia Torre Fuerte" class="img-center">
-                <!-- <h1 class=" logo-text">Academia de Música<br>Torre Fuerte</h1> -->
+                <img src="logo.png" alt="Logo Academia Torrefuerte" class="img-center">
+                <!-- <h1 class=" logo-text">Academia de Música<br>Torrefuerte</h1> -->
             </div>
-            <h1 class="logo">Academia de Música Torre Fuerte</h1>
+            <h1 class="logo">Academia de Música Torrefuerte</h1>
             <p class="tagline">Formando artistas integrales para el futuro</p>
         </div>
     </header>
@@ -663,7 +676,7 @@
     <section class="container">
         <h2 class="section-title">Nuestra Misión</h2>
         <div class="intro-text">
-            <p>Nuestra iniciativa de educación musical se alinea perfectamente con la visión del Colegio Torre Fuerte.
+            <p>Nuestra iniciativa de educación musical se alinea perfectamente con la visión del Colegio Torrefuerte.
                 La música, como expresión artística universal, constituye un pilar fundamental en la
                 formación integral de la persona. A través de ella, los estudiantes pueden desarrollar no solo
                 habilidades técnicas específicas, sino también capacidades cognitivas, emocionales y sociales.</p>
@@ -696,7 +709,7 @@
         <div class="courses">
             <div class="course-card">
                 <div class="course-icon">
-                    <i class="fas fa-violin"></i>
+                    <img src="images/violinista.png" alt="Icono Violín" class="course-image">
                 </div>
                 <h3 class="course-title">Violín</h3>
                 <p class="course-desc">Aprende las técnicas fundamentales del violín y desarrolla tu sensibilidad
@@ -707,10 +720,12 @@
                     <button class="btn btn-outline" onclick="openModal('violin')">Ver Programa</button>
                 </div>
             </div>
+            
 
             <div class="course-card">
                 <div class="course-icon">
-                    <i class="fas fa-cello"></i>
+                    <img src="images/violonchelo.png" alt="Icono Violín" class="course-image">
+
                 </div>
                 <h3 class="course-title">Violoncello</h3>
                 <p class="course-desc">Descubre el apasionante mundo del violoncello y su profunda expresividad, guiado
@@ -724,7 +739,7 @@
 
             <div class="course-card">
                 <div class="course-icon">
-                    <i class="fas fa-guitar"></i>
+                    <img src="images/guitarrista.png" alt="Icono Violín" class="course-image">
                 </div>
                 <h3 class="course-title">Guitarra Clásica</h3>
                 <p class="course-desc">Domina este versátil instrumento a través de un programa que combina técnica,
@@ -738,7 +753,7 @@
 
             <div class="course-card">
                 <div class="course-icon">
-                    <i class="fas fa-guitar"></i>
+                    <img src="images/tocar-la-guitarra.png" alt="Icono Violín" class="course-image">
                 </div>
                 <h3 class="course-title">Guitarra Popular</h3>
                 <p class="course-desc">Aprende los ritmos y técnicas de la guitarra popular para acompañamiento e
@@ -752,7 +767,7 @@
 
             <div class="course-card">
                 <div class="course-icon">
-                    <i class="fas fa-microphone"></i>
+                    <img src="images/cantando.png" alt="Icono Violín" class="course-image">
                 </div>
                 <h3 class="course-title">Clases de Canto</h3>
                 <p class="course-desc">Desarrolla tu voz como instrumento musical, mejorando técnica vocal, respiración
@@ -766,7 +781,7 @@
 
             <div class="course-card">
                 <div class="course-icon">
-                    <i class="fas fa-piano"></i>
+                    <img src="images/pianista.png" alt="Icono Violín" class="course-image">
                 </div>
                 <h3 class="course-title">Piano</h3>
                 <p class="course-desc">Sumérgete en el estudio del piano con un programa que abarca desde los
@@ -804,7 +819,7 @@
                 <h3 class="team-name">Prof. Elías Báez</h3>
                 <p class="team-role">Profesor de Guitarra Clásica y Popular</p>
                 <p>Estudiante de Guitarra Clásica en el Instituto Superior Nacional de Música. Encargado de Arte del
-                    Colegio Torre Fuerte. Su pasión y dedicación por la enseñanza musical lo convierten en un guía
+                    Colegio Torrefuerte. Su pasión y dedicación por la enseñanza musical lo convierten en un guía
                     excepcional para los estudiantes.</p>
             </div>
         </div>
@@ -824,7 +839,7 @@
         <h2 class="section-title">Coro Académico</h2>
         <div class="choir-section">
             <div class="choir-content">
-                <h3>Coro Académico del Colegio Torre Fuerte</h3>
+                <h3>Coro Académico del Colegio Torrefuerte</h3>
                 <p>Como parte de nuestra oferta musical, tenemos planeado la conformación del Coro del Colegio Torre
                     Fuerte, un espacio donde
                     los estudiantes pueden experimentar la riqueza de la música coral. Realizamos prácticas corales
@@ -835,7 +850,7 @@
                 <a href="#" class="btn">Conocer más</a>
             </div>
             <div class="choir-img">
-                <img src="logo_coro.png" alt="Coro Torre Fuerte" class="img-center">
+                <img src="logo_coro.png" alt="Coro Torrefuerte" class="img-center">
             </div>
         </div>
     </div>
@@ -845,7 +860,7 @@
         <div class="choir-section">
             <div class="about-content">
                 <h3>Formación Integral a través de la Música</h3>
-                <p>En la Academia de Música Torre Fuerte, creemos en el poder transformador de la educación musical.
+                <p>En la Academia de Música Torrefuerte, creemos en el poder transformador de la educación musical.
                     Nuestro enfoque pedagógico combina la excelencia técnica con el desarrollo personal, fomentando
                     valores como la disciplina, la sensibilidad artística y el trabajo en equipo.</p>
                 <p>Contamos con un equipo docente de primer nivel, con amplia experiencia tanto en la interpretación
@@ -861,8 +876,8 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Academia de Música Torre Fuerte</h3>
-                <p>Formación musical integral en el Colegio Torre Fuerte.</p>
+                <h3>Academia de Música Torrefuerte</h3>
+                <p>Formación musical integral en el Colegio Torrefuerte.</p>
             </div>
             <div class="footer-section">
                 <h3>Contáctanos</h3>
@@ -880,7 +895,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Academia de Música Torre Fuerte - Todos los derechos reservados</p>
+            <p>&copy; 2025 Academia de Música Torrefuerte - Todos los derechos reservados</p>
         </div>
     </footer>
 
