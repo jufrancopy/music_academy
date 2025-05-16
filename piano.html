@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia de Piano - Programa Primer Año</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Colores principales */
+            --primary-color: #111E3E;
+            /* Azul oscuro (principal) */
+            --secondary-color: #F5943A;
+            /* Naranja brillante (acento) */
+            --accent-color: #A81616;
+            /* Rojo vino (énfasis) */
+            --light-color: #CFCFCF;
+            /* Gris claro (fondo/neutral) */
+
+            /* Colores adicionales para mejor contraste */
+            --dark-text: #222222;
+            /* Texto oscuro */
+            --light-text: #FFFFFF;
+            /* Texto claro */
+            --hover-primary: #0E1830;
+            /* Hover azul más oscuro */
+            --hover-secondary: #E07D2A;
+            /* Hover naranja más oscuro */
+
+            /* Tipografía */
+            --font-main: 'Playfair Display', Georgia, serif;
+            --font-body: 'Raleway', sans-serif;
+
+            /* Sombras */
+            --shadow-sm: 0 2px 5px rgba(17, 30, 62, 0.1);
+            --shadow-md: 0 5px 15px rgba(17, 30, 62, 0.2);
+            --shadow-lg: 0 10px 25px rgba(17, 30, 62, 0.3);
+
+            /* Bordes */
+            --border-radius: 8px;
+            --border-primary: 2px solid var(--primary-color);
+            --border-accent: 2px solid var(--accent-color);
+
+            /* Transiciones */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light-color);
+        }
+
+        /* Layout principal */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            background-image: linear-gradient(rgba(26, 38, 57, 0.9), rgba(26, 38, 57, 0.9)), url('/api/placeholder/1200/400');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .img-center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .course-icon {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .course-image {
+            width: 60px;        /* Control estricto del tamaño */
+            height: auto;       /* Mantiene proporción */
+            object-fit: contain;
+            display: inline-block;
+        }
+
+
+        .logo-text {
+            font-family: var(--font-main);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+
+        .tagline {
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        /* Títulos y texto */
+        .section-title {
+            font-family: var(--font-main);
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 10px auto;
+        }
+
+        .intro-text {
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Estilos específicos para el programa de piano */
+        .program-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .trimester-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            padding: 2rem;
+            transition: transform var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trimester-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .trimester-card:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--secondary-color);
+        }
+
+        .trimester-title {
+            font-family: var(--font-main);
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--light-color);
+        }
+
+        .trimester-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .trimester-card li {
+            margin-bottom: 1rem;
+            padding-left: 1.8rem;
+            position: relative;
+        }
+
+        .trimester-card li:before {
+            content: "♪";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+
+        /* Clases individuales */
+        .class-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .class-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .class-title {
+            font-family: var(--font-main);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .class-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .class-meta span {
+            display: flex;
+            align-items: center;
+        }
+
+        .class-meta i {
+            margin-right: 0.5rem;
+        }
+
+        .class-content {
+            padding: 2rem;
+        }
+
+        .class-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .class-section-title {
+            font-family: var(--font-main);
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .class-resources {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .resource-link {
+            display: flex;
+            align-items: center;
+            background-color: var(--light-color);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-size: 0.9rem;
+            transition: all var(--transition-fast);
+        }
+
+        .resource-link:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .resource-link i {
+            margin-right: 0.5rem;
+        }
+
+        /* Botones */
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 0.7rem 1.5rem;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        /* Progreso del estudiante */
+        .progress-section {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 3rem;
+        }
+
+        .progress-title {
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .progress-bar-container {
+            height: 20px;
+            background-color: var(--light-color);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            width: 33%; /* Ajustar según el progreso */
+            transition: width 1s ease;
+        }
+
+        .objectives-list {
+            margin-top: 2rem;
+        }
+
+        .objective-item {
+            display: flex;
+            margin-bottom: 1rem;
+            align-items: center;
+        }
+
+        .objective-check {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid var(--light-color);
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+        }
+
+        .objective-complete .objective-check {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        .objective-text {
+            flex: 1;
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-main);
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Estilos responsive */
+        @media (max-width: 768px) {
+            .logo-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .progress-section,
+            .program-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="logo-container">
+            <div class="logo-text">Academia de Piano</div>
+        </div>
+        <p class="tagline">Formando pianistas desde los fundamentos hasta la excelencia</p>
+        <a href="#programa" class="btn">Ver Programa de Primer Año</a>
+    </header>
+
+    <!-- Programa de Piano -->
+    <section id="programa" class="container">
+        <h2 class="section-title">Programa de Piano - Primer Año</h2>
+        <p class="intro-text">Nuestro programa de piano para el primer año está diseñado para establecer una base sólida en técnica pianística, teoría musical y expresión artística. A través de un enfoque estructurado, los estudiantes progresarán desde los fundamentos hasta la interpretación de piezas con confianza y sensibilidad musical.</p>
+
+        <div class="program-container">
+            <!-- Primer Trimestre -->
+            <div class="trimester-card">
+                <h3 class="trimester-title">Primer Trimestre</h3>
+                <ul>
+                    <li>Conocimiento del instrumento y su mecánica</li>
+                    <li>Posición correcta de manos y cuerpo</li>
+                    <li>Ejercicios de independencia y coordinación</li>
+                    <li>Lectura de pentagramas y figuras rítmicas</li>
+                    <li>Piezas sencillas con ambas manos</li>
+                </ul>
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <a href="#clase1" class="btn btn-outline">Ver Clases</a>
+                </div>
+            </div>
+
+            <!-- Segundo Trimestre -->
+            <div class="trimester-card">
+                <h3 class="trimester-title">Segundo Trimestre</h3>
+                <ul>
+                    <li>Escalas mayores y menores básicas</li>
+                    <li>Acordes y arpegios sencillos</li>
+                    <li>Estudios técnicos de Czerny</li>
+                    <li>Piezas del repertorio clásico elemental</li>
+                    <li>Teoría musical aplicada al piano</li>
+                </ul>
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <a href="#clase2" class="btn btn-outline">Ver Clases</a>
+                </div>
+            </div>
+
+            <!-- Tercer Trimestre -->
+            <div class="trimester-card">
+                <h3 class="trimester-title">Tercer Trimestre</h3>
+                <ul>
+                    <li>Técnica de pedal</li>
+                    <li>Escalas en octavas</li>
+                    <li>Piezas más complejas del repertorio</li>
+                    <li>Introducción a la improvisación</li>
+                    <li>Preparación para recital de fin de año</li>
+                </ul>
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <a href="#clase3" class="btn btn-outline">Ver Clases</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clases detalladas -->
+    <section class="container">
+        <h2 class="section-title">Desarrollo de las Clases</h2>
+
+        <h3 style="text-align: center; font-family: var(--font-main); color: var(--primary-color); margin-bottom: 2rem;">Primer Trimestre</h3>
+
+        <!-- Clase 1 -->
+        <div id="clase1" class="class-card">
+            <div class="class-header">
+                <h3 class="class-title">Clase 1: Introducción al Piano</h3>
+                <div class="class-meta">
+                    <span><i class="far fa-clock"></i> 60 minutos</span>
+                    <span><i class="fas fa-signal"></i> Nivel: Principiante</span>
+                </div>
+            </div>
+            <div class="class-content">
+                <div class="class-section">
+                    <h4 class="class-section-title">Objetivos de la Clase</h4>
+                    <p>Familiarizar al estudiante con el instrumento, sus partes y funcionamiento básico. Establecer una postura correcta frente al piano y aprender la posición adecuada de las manos.</p>
+                </div>
+
+                <div class="class-section">
+                    <h4 class="class-section-title">Contenido Principal</h4>
+                    <ul>
+                        <li>Introducción al piano: historia breve y evolución del instrumento</li>
+                        <li>Anatomía del piano: teclas, pedales, cuerdas y mecanismo interno</li>
+                        <li>Postura correcta: altura del asiento, distancia al teclado, posición de espalda y hombros</li>
+                        <li>Posición de las manos: forma de "C", muñecas relajadas, dedos curvados</li>
+                        <li>Ejercicios de relajación y preparación para tocar</li>
+                    </ul>
+                </div>
+
+                <div class="class-section">
+                    <h4 class="class-section-title">Actividades Prácticas</h4>
+                    <ul>
+                        <li>Ejercicios de reconocimiento de teclas (notas blancas y negras)</li>
+                        <li>Práctica de postura y posición de manos frente al piano</li>
+                        <li>Ejercicios básicos de cinco dedos para familiarizarse con el teclado</li>
+                        <li>Identificación auditiva de notas graves y agudas</li>
+                    </ul>
+                </div>
+
+                <div class="class-resources">
+                    <a href="#" class="resource-link"><i class="fas fa-file-pdf"></i> Guía de postura correcta</a>
+                    <a href="#" class="resource-link"><i class="fas fa-video"></i> Video: Partes del piano</a>
+                    <a href="#" class="resource-link"><i class="fas fa-music"></i> Ejercicios iniciales (PDF)</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clase 2 -->
+        <div id="clase2" class="class-card">
+            <div class="class-header">
+                <h3 class="class-title">Clase 2: Lectura de Pentagramas Básicos</h3>
+                <div class="class-meta">
+                    <span><i class="far fa-clock"></i> 60 minutos</span>
+                    <span><i class="fas fa-signal"></i> Nivel: Principiante</span>
+                </div>
+            </div>
+            <div class="class-content">
+                <div class="class-section">
+                    <h4 class="class-section-title">Objetivos de la Clase</h4>
+                    <p>Introducir al estudiante en la lectura musical básica, reconocimiento de notas en el pentagrama y la relación entre la notación y el teclado del piano.</p>
+                </div>
+
+                <div class="class-section">
+                    <h4 class="class-section-title">Contenido Principal</h4>
+                    <ul>
+                        <li>Introducción al pentagrama: líneas y espacios</li>
+                        <li>Claves de Sol y Fa: reconocimiento y función</li>
+                        <li>Ubicación de las notas Do central y su relación con ambas claves</li>
+                        <li>Figuras rítmicas básicas: redondas, blancas y negras</li>
+                        <li>Relación entre las notas escritas y su ubicación en el teclado</li>
+                    </ul>
+                </div>
+
+                <div class="class-section">
+                    <h4 class="class-section-title">Actividades Prácticas</h4>
+                    <ul>
+                        <li>Ejercicios de identificación de notas en el pentagrama</li>
+                        <li>Práctica de lectura y ejecución de notas individuales</li>
+                        <li>Ejercicios rítmicos básicos con palmas y en el piano</li>
+                        <li>Primera pieza sencilla: "Twinkle Twinkle Little Star" con mano derecha</li>
+                    </ul>
+                </div>
+
+                <div class="class-resources">
+                    <a href="#" class="resource-link"><i class="fas fa-file-pdf"></i> Guía de lectura musical</a>
+                    <a href="#" class="resource-link"><i class="fas fa-music"></i> Partitura: Primeras notas</a>
+                    <a href="#" class="resource-link"><i class="fas fa-tasks"></i> Ejercicios de reconocimiento</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clase 3 -->
+        <div id="clase3" class="class-card">
+            <div class="class-header">
+                <h3 class="class-title">Clase 3: Coordinación e Independencia de Manos</h3>
+                <div class="class-meta">
+                    <span><i class="far fa-clock"></i> 60 minutos</span>
+                    <span><i class="fas fa-signal"></i> Nivel: Principiante</span>
+                </div>
+            </div>
+            <div class="class-content">
+                <div class="class-section">
+                    <h4 class="class-section-title">Objetivos de la Clase</h4>
+                    <p>Desarrollar la coordinación y la independencia entre ambas manos mediante ejercicios específicos y piezas sencillas que requieran el uso simultáneo de manos.</p>
+                </div>
+
+                <div class="class-section">
+                    <h4 class="class-section-title">Contenido Principal</h4>
+                    <ul>
+                        <li>Repaso de postura y posición de manos</li>
+                        <li>Ejercicios de cinco dedos para ambas manos por separado</li>
+                        <li>Técnicas de coordinación: movimientos paralelos y contrarios</li>
+                        <li>Introducción a la digitación básica: numeración de los dedos</li>
+                        <li>Concepto de melodía y acompañamiento simple</li>
+                    </ul>
+                </div>
+
+                <div class="class-section">
+                    <h4 class="class-section-title">Actividades Prácticas</h4>
+                    <ul>
+                        <li>Ejercicios de Hanon simplificados para principiantes</li>
+                        <li>Práctica de escalas de Do Mayor con manos separadas</li>
+                        <li>Ejercicios de coordinación rítmica entre ambas manos</li>
+                        <li>Pieza sencilla con ambas manos: "Himno a la Alegría" (versión simplificada)</li>
+                    </ul>
+                </div>
+
+                <div class="class-resources">
+                    <a href="#" class="resource-link"><i class="fas fa-file-pdf"></i> Ejercicios de coordinación</a>
+                    <a href="#" class="resource-link"><i class="fas fa-music"></i> Partitura: Himno a la Alegría</a>
+                    <a href="#" class="resource-link"><i class="fas fa-video"></i> Video: Técnicas de coordinación</a>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="text-align: center; font-family: var(--font-main); color: var(--primary-color); margin: 3rem 0 2rem;">Segundo Trimestre</h3>
+
+        <!-- Clase 4 -->
+        <div id="clase4" class="class-card">
+            <div class="class-header">
+                <h3 class="class-title">Clase 4: Escalas Mayores y Menores Básicas</h3>
+                <div class="class-meta">
+                    <span><i class="far fa-clock"></i> 60 minutos</span>
+                    <span><i class="fas fa-signal"></i> Nivel: Principiante-Intermedio</span>
+                </div>
+            </div>
+            <div class="class-content">
+                <div class="class-section">
+                    <h4 class="class-section-title">Objetivos de la Clase</h4>
+                    <p>Introducir al estudiante en la teoría y práctica de las escalas mayores y menores más sencillas, desarrollando agilidad en los dedos y comprensión de la tonalidad.</p>
+                </div>
+
+                <div class="class-section">
+                    <h4 class="class-section-title">Contenido Principal</h4>
+                    <ul>
+                        <li>Teoría básica de las escalas: tonos y semitonos</li>
+                        <li>Estructura de la escala mayor: patrón TTSTTTS</li>
+                        <li>Estructura de la escala menor natural: patrón TSTTSTT</li>
+                        <li>Digitación estándar para escalas de Do, Sol y Fa Mayor</li>
+                        <li>Relación entre escalas relativas mayores y menores</li>
+                    </ul>
+                </div>
+
+                <div class="class-section">
+                    <h4 class="class-section-title">Actividades Prácticas</h4>
+                    <ul>
+                        <li>Práctica de escalas de Do, Sol y Fa Mayor con manos separadas</li>
+                        <li>Introducción a la escala de La menor</li>
+                        <li>Ejercicios rítmicos con las escalas: negras, corcheas</li>
+                        <li>Aplicación de las escalas en pequeños fragmentos musicales</li>
+                    </ul>
+                </div>
+
+                <div class="class-resources">
+                    <a href="#" class="resource-link"><i class="fas fa-file-pdf"></i> Guía de escalas básicas</a>
+                    <a href="#" class="resource-link"><i class="fas fa-music"></i> Ejercicios de escalas</a>
+                    <a href="#" class="resource-link"><i class="fas fa-video"></i> Video: Técnica de escalas</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clase 5 -->
+        <div id="clase5" class="class-card">
+            <div class="class-header">
+                <h3 class="class-title">Clase 5: Acordes y Arpegios Sencillos</h3>
+                <div class="class-meta">
+                    <span><i class="far fa-clock"></i> 60 minutos</span>
+                    <span><i class="fas fa-signal"></i> Nivel: Principiante-Intermedio</span>
+                </div>
+            </div>
+            <div class="class-content">
+                <div class="class-section">
+                    <h4 class="class-section-title">Objetivos de la Clase</h4>
+                    <p>Comprender la estructura de acordes básicos y desarrollar la técnica para tocar arpegios, elementos fundamentales para el acompañamiento y la armonía.</p>
+                </div>
+
+                <div class="class-section">
+                    <h4 class="class-section-title">Contenido Principal</h4>
+                    <ul>
+                        <li>Teoría básica de acordes: tríadas mayores y menores</li>
+                        <li>Construcción de acordes en estado fundamental</li>
+                        <li>Arpegios: definición y técnica de ejecución</li>
+                        <li>Acordes principales: I, IV, V en tonalidades básicas</li>
+                        <li>Patrones de acompañamiento básico con acordes</li>
+                    </ul>
+                </div>
+
+                <div class="class-section">
+                    <h4 class="class-section-title">Actividades Prácticas</h4>
+                    <ul>
+                        <li>Identificación y ejecución de acordes de Do, Sol y Fa Mayor</li>
+                        <li>Práctica de arpegios en posición fundamental</li>
+                        <li>Patrones de acompañamiento básico: bajo-acorde-acorde</li>
+                        <li>Aplicación de acordes y arpegios en piezas sencillas</li>
+                    </ul>
+                </div>
+
+                <div class="class-resources">
+                    <a href="#" class="resource-link"><i class="fas fa-file-pdf"></i> Manual de acordes básicos</a>
+                    <a href="#" class="resource-link"><i class="fas fa-music"></i> Ejercicios de arpegios</a>
+                    <a href="#" class="resource-link"><i class="fas fa-tasks"></i> Práctica de acordes</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clase 6 -->
+        <div id="clase6" class="class-card">
+            <div class="class-header">
+                <h3 class="class-title">Clase 6: Estudios Técnicos de Czerny</h3>
+                <div class="class-meta">
+                    <span><i class="far fa-clock"></i> 60 minutos</span>
+                    <span><i class="fas fa-signal"></i> Nivel: Principiante-Intermedio</span>
+                </div>
+            </div>
+            <div class="class-content">
+                <div class="class-section">
+                    <h4 class="class-section-title">Objetivos de la Clase</h4>
+                    <p>Introducir al estudiante en los estudios técnicos de Carl Czerny, enfocados en el desarrollo de la destreza, precisión y agilidad en los dedos.</p>
+                </div>
+
+                <div class="class-section">
+                    <h4 class="class-section-title">Contenido Principal</h4>
+                    <ul>
+                        <li>Introducción a Carl Czerny y sus métodos para piano</li>
+                        <li>Análisis del Op. 599: Estudios elementales para principiantes</li>
+                        <li>Técnicas de estudio eficiente: lento a rápido, por secciones</li>
+                        <li>Articulación correcta y precisión rítmica</li>
+                        <li>Desarrollo de independencia de dedos mediante estudios específicos</li>
+                    </ul>
+                </div>
+
+                <div class="class-section">
+                    <h4 class="class-section-title">Actividades Prácticas</h4>
+                    <ul>
+                        <li>Práctica del Estudio No. 1 del Op. 599 (ejercicio de cinco dedos)</li>
+                        <li>Técnicas de estudio por secciones y a diferentes velocidades</li>
+                        <li>Ejercicios de articulación: legato vs. staccato</li>
+                        <li>Análisis estructural del estudio y plan de práctica</li>
+                    </ul>
+                </div>
+
+                <div class="class-resources">
+                    <a href="#" class="resource-link"><i class="fas fa-file-pdf"></i> Partituras: Estudios seleccionados Op.599</a>
+                    <a href="#" class="resource-link"><i class="fas fa-video"></i> Video: Técnicas de estudio</a>
+                    <a href="#" class="resource-link"><i class="fas fa-music"></i> Grabaciones de referencia</a>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="text-align: center; font-family: var(--font-main); color: var(--primary-color); margin: 3rem 0 2rem;">Tercer Trimestre</h3>
+
+        <!-- Clase 7 -->
+        <div id="clase7" class="class-card">
+            <div class="class-header">
+                <h3 class="class-title">Clase 7: Técnica de Pedal</h3>
+                <div class="class-meta">
+                    <span><i class="far fa-clock"></i> 60 minutos</span>
+                    <span><i class="fas fa-signal"></i> Nivel: Intermedio</span>
+                </div>
+            </div>
+            <div class="class-content">
+                <div class="class-section">
+                    <h4 class="class-section-title">Objetivos de la Clase</h4>
+                    <p>Introducir al estudiante en el uso correcto del pedal de resonancia, explorando cómo enriquece el sonido y contribuye a la expresividad musical.</p>
+                </div>
+
+                <div class="class-section">
+                    <h4 class="class-section-title">Contenido Principal</h4>
+                    <ul>
+                        <li>Introducción a los pedales del piano: función y mecanismo</li>
+                        <li>El pedal de resonancia: efecto acústico y musical</li>
+                        <li>Técnicas básicas: pedal sincopado y pedal rítmico</li>
+                        <li>Cuándo y cómo usar el pedal según el estilo musical</li>
+                        <li>Errores comunes en el uso del pedal y cómo evitarlos</li>
+                    </ul>
+                </div>
+
+                <div class="class-section">
+                    <h4 class="class-section-title">Actividades Prácticas</h4>
+                    <ul>
+                        <li>Ejercicios de pedal sincopado con acordes simples</li>
+                        <li>Aplicación del pedal en escalas y arpegios</li>
+                        <li>Práctica de piezas sencillas con indicaciones de pedal</li>
+                        <li>Ejercicios para distinguir auditivamente el efecto del pedal</li>
+                    </ul>
+                </div>
+
+                <div class="class-resources">
+                    <a href="#" class="resource-link"><i class="fas fa-file-pdf"></i> Guía de técnicas de pedal</a>
+                    <a href="#" class="resource-link"><i class="fas fa-video"></i> Video: Uso correcto del pedal</a>
+                    <a href="#" class="resource-link"><i class="fas fa-music"></i> Piezas con pedal marcado</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clase 8 -->
+        <div id="clase8" class="class-card">
+            <div class
+
+    <!-- Progreso del estudiante -->
+    <section class="container">
+        <h2 class="section-title">Seguimiento del Progreso</h2>
+        
+        <div class="progress-section">
+            <h3 class="progress-title">Tu Progreso en el Primer Año</h3>
+            
+            <div>
+                <p><strong>Trimestre actual:</strong> Primer Trimestre</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar"></div>
+                </div>
+                <p style="text-align: right;">33% completado</p>
+            </div>
+            
+            <div class="objectives-list">
+                <h4 style="margin-bottom: 1rem;">Objetivos del Trimestre:</h4>
+                
+                <div class="objective-item objective-complete">
+                    <div class="objective-check"><i class="fas fa-check"></i></div>
+                    <div class="objective-text">Conocer las partes básicas del piano</div>
+                </div>
+                
+                <div class="objective-item objective-complete">
+                    <div class="objective-check"><i class="fas fa-check"></i></div>
+                    <div class="objective-text">Adoptar una postura correcta al tocar</div>
+                </div>
+                
+                <div class="objective-item">
+                    <div class="objective-check"></div>
+                    <div class="objective-text">Leer pentagramas básicos con ambas claves</div>
+                </div>
+                
+                <div class="objective-item">
+                    <div class="objective-check"></div>
+                    <div class="objective-text">Ejecutar piezas sencillas con ambas manos</div>
+                </div>
+                
+                <div class="objective-item">
+                    <div class="objective-check"></div>
+                    <div class="objective-text">Desarrollar independencia básica entre ambas manos</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Materiales recomendados -->
+    <section class="container">
+        <h2 class="section-title">Materiales Recomendados</h2>
+        
+        <div class="program-container">
+            <!-- Libros -->
+            <div class="trimester-card">
+                <h3 class="trimester-title">Libros y Métodos</h3>
+                <ul>
+                    <li>"Método Bastien para Piano" - James Bastien</li>
+                    <li>"El Piano Básico de Bastien" - Nivel Elemental</li>
+                    <li>"Mikrokosmos Vol. 1" - Béla Bartók</li>
+                    <li>"John Thompson's Easiest Piano Course" - Parte 1</li>
+                    <li>"Estudios elementales" - Czerny Op. 599</li>
+                </ul>
+            </div>
+            
+            <!-- Partituras -->
+            <div class="trimester-card">
+                <h3 class="trimester-title">Partituras Recomendadas</h3>
+                <ul>
+                    <li>"Minueto en G" - J.S. Bach (versión simplificada)</li>
+                    <li>"Para Elisa" - L.V. Beethoven (primeros compases)</li>
+                    <li>"El Álbum de Ana Magdalena Bach" (selecciones)</li>
+                    <li>"Gymnopédie No.1" - Erik Satie (adaptación)</li>
+                    <li>Pequeñas piezas del "Álbum para la Juventud" - Schumann</li>
+                </ul>
+            </div>
+            
+            <!-- Recursos Online -->
+            <div class="trimester-card">
+                <h3 class="trimester-title">Recursos Online</h3>
+                <ul>
+                    <li>Aplicaciones para práctica de lectura musical</li>
+                    <li>Videos tutoriales de técnica básica</li>
+                    <li>Juegos interactivos de teoría musical</li>
+                    <li>Grabaciones de referencia del repertorio</li>
+                    <li>Metrónomo online para práctica rítmica</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Academia de Piano</h3>
+                <p>Formando músicos con excelencia y pasión desde principiantes hasta niveles avanzados.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Av. de la Música 123, Ciudad</p>
+                <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                <p><i class="fas fa-envelope"></i> info@academiapiano.com</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Horarios</h3>
+                <p>Lunes a Viernes: 10:00 - 20:00</p>
+                <p>Sábados: 10:00 - 14:00</p>
+                <p>Domingos: Cerrado</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Academia de Piano. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botones flotantes de contacto -->
+    <div class="floating-buttons">
+        <button class="floating-btn whatsapp-btn" title="Contactar por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </button>
+        <button class="floating-btn" title="Ir arriba">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script>
+        // Script para manejar el botón de ir arriba
+        document.querySelector('.floating-btn:last-child').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Script para simular progreso
+        window.addEventListener('scroll', function() {
+            const progressBar = document.querySelector('.progress-bar');
+            const scrollPosition = window.scrollY;
+            
+            // Cambia el porcentaje basado en el scroll para demostración
+            if (scrollPosition > 1000) {
+                progressBar.style.width = '66%';
+                document.querySelector('.progress-bar').parentElement.nextElementSibling.textContent = '66% completado';
+            } else if (scrollPosition > 500) {
+                progressBar.style.width = '50%';
+                document.querySelector('.progress-bar').parentElement.nextElementSibling.textContent = '50% completado';
+            } else {
+                progressBar.style.width = '33%';
+                document.querySelector('.progress-bar').parentElement.nextElementSibling.textContent = '33% completado';
+            }
+        });
+    </script>
+</body>
+
+</html>
