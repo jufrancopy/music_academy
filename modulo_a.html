@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teoría Musical Paso a Paso - Método Visual Interactivo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #6366f1;
+            --accent-color: #f59e0b;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --error-color: #ef4444;
+            --text-primary: #1f2937;
+            --text-secondary: #4b5563;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #e2e8f0;
+            --border-color: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --gradient-primary: linear-gradient(135deg, #3b82f6, #6366f1);
+            --gradient-accent: linear-gradient(135deg, #f59e0b, #f97316);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-primary);
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+            display: inline-block;
+        }
+
+        .header h1::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .header .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.1);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .methodology-intro {
+            background: var(--bg-primary);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .methodology-intro h2 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            font-family: 'Playfair Display', serif;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .methodology-intro h2::before {
+            content: "";
+            display: block;
+            width: 30px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .lesson-card {
+            background: var(--bg-primary);
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 3rem;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .lesson-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        .lesson-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .lesson-number {
+            background: rgba(255, 255, 255, 0.2);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .lesson-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .lesson-subtitle {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .lesson-content {
+            padding: 3rem;
+        }
+
+        .lesson-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            font-family: 'Playfair Display', serif;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .lesson-content h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-color);
+            border-radius: 3px;
+        }
+
+        .lesson-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .staff-container {
+            background: var(--bg-secondary);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .staff {
+            display: inline-block;
+            position: relative;
+            width: 500px;
+            height: 150px;
+            background-image: 
+                repeating-linear-gradient(
+                    transparent,
+                    transparent 24px,
+                    #333 24px,
+                    #333 26px
+                );
+            margin: 1.5rem 0;
+        }
+
+        .note {
+            position: absolute;
+            width: 25px;
+            height: 20px;
+            background: #333;
+            border-radius: 50%;
+            transform: rotate(-20deg);
+        }
+
+        .note-whole { background: white; border: 3px solid #333; }
+        .note-half { background: white; border: 3px solid #333; }
+        .note-quarter { background: #333; }
+
+        .clef {
+            position: absolute;
+            left: 15px;
+            top: 25px;
+            font-size: 5rem;
+            font-weight: bold;
+        }
+
+        .keyboard {
+            display: flex;
+            justify-content: center;
+            margin: 3rem 0;
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+        }
+
+        .key {
+            width: 50px;
+            height: 150px;
+            border: 1px solid #ccc;
+            background: white;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .key:hover {
+            background: #f0f0f0;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .key.black {
+            width: 30px;
+            height: 100px;
+            background: #111;
+            margin: 0 -15px;
+            z-index: 1;
+            position: relative;
+            box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .key.black:hover {
+            background: #333;
+        }
+
+        .key-label {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .black .key-label {
+            color: white;
+            bottom: 10px;
+        }
+
+        .exercise-box {
+            background: linear-gradient(135deg, rgba(254, 243, 199, 0.8), rgba(251, 191, 36, 0.8));
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border-left: 6px solid var(--accent-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .exercise-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23f59e0b" opacity="0.1"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>') no-repeat;
+            background-size: contain;
+        }
+
+        .exercise-title {
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, rgba(219, 234, 254, 0.8), rgba(59, 130, 246, 0.8));
+            color: #1e40af;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border-left: 6px solid var(--primary-color);
+            position: relative;
+        }
+
+        .tip-box h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .progress-bar {
+            background: var(--bg-tertiary);
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 1.5rem 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 5px;
+            transition: width 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+            animation: progressAnimation 2s infinite linear;
+        }
+
+        @keyframes progressAnimation {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 1.1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background: #cbd5e1;
+            transform: translateY(-3px);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .methodology-card {
+            background: var(--bg-primary);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .methodology-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .methodology-icon {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            background: rgba(59, 130, 246, 0.1);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .methodology-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+        }
+
+        .rhythm-pattern {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .beat {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .beat.rest {
+            background: transparent;
+            border: 2px solid var(--text-secondary);
+            color: var(--text-secondary);
+        }
+
+        .note-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .note-card {
+            text-align: center;
+            background: var(--bg-secondary);
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .note-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .note-symbol {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .note-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .time-signature {
+            display: inline-block;
+            border: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            text-align: center;
+            background: white;
+        }
+
+        .time-signature .top {
+            font-size: 3.5rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .time-signature .bottom {
+            font-size: 3.5rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .time-example {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 2rem 0;
+            font-size: 2.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .bar-line {
+            border-left: 4px solid #333;
+            height: 80px;
+            margin: 0 1rem;
+        }
+
+        .learning-tip {
+            background: rgba(16, 185, 129, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--success-color);
+        }
+
+        .learning-tip h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--success-color);
+            margin-bottom: 1rem;
+        }
+
+        .learning-tip p {
+            color: var(--text-secondary);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 5rem;
+            padding: 3rem 0;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .footer .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .footer .social-links a {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .footer .social-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 1.5rem; }
+            .header { padding: 3rem 1.5rem; }
+            .header h1 { font-size: 2.5rem; }
+            .header p { font-size: 1.1rem; }
+            .lesson-header { flex-direction: column; text-align: center; gap: 1rem; padding: 2rem 1.5rem; }
+            .lesson-number { width: 60px; height: 60px; font-size: 1.8rem; }
+            .lesson-title { font-size: 1.6rem; }
+            .lesson-content { padding: 2rem 1.5rem; }
+            .staff { width: 100%; max-width: 350px; height: 120px; }
+            .key { width: 35px; height: 120px; }
+            .key.black { width: 25px; height: 80px; margin: 0 -12.5px; }
+            .grid { grid-template-columns: 1fr; }
+            .methodology-card { padding: 2rem 1.5rem; }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 { font-size: 2rem; }
+            .header p { font-size: 1rem; }
+            .lesson-title { font-size: 1.4rem; }
+            .lesson-content h3 { font-size: 1.5rem; }
+            .note-grid { grid-template-columns: 1fr; }
+            .time-signature { padding: 1rem; }
+            .time-signature .top, .time-signature .bottom { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="icon">
+                <i class="fas fa-music"></i>
+            </div>
+            <h1>Teoría Musical Paso a Paso</h1>
+            <p>Un método visual e interactivo diseñado para aprender teoría musical de forma sencilla, progresiva y efectiva</p>
+            <div style="margin-top: 2rem;">
+                <a href="#lecciones" class="btn btn-primary">
+                    <i class="fas fa-book-open"></i> Comenzar Aprendizaje
+                </a>
+            </div>
+        </div>
+
+        <!-- Metodología -->
+        <div class="methodology-intro">
+            <h2><i class="fas fa-chalkboard-teacher"></i> Nuestra Metodología</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Hemos desarrollado un sistema de aprendizaje basado en principios pedagógicos modernos que maximizan la retención y comprensión.</p>
+            
+            <div class="grid">
+                <div class="methodology-card">
+                    <div class="methodology-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Aprendizaje Visual</h3>
+                    <p>Utilizamos diagramas, colores y representaciones gráficas que facilitan la memorización y comprensión de conceptos abstractos.</p>
+                </div>
+                
+                <div class="methodology-card">
+                    <div class="methodology-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Progresión Gradual</h3>
+                    <p>Cada lección construye sobre la anterior con una curva de aprendizaje suave, evitando saltos abruptos en dificultad.</p>
+                </div>
+                
+                <div class="methodology-card">
+                    <div class="methodology-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Práctica Interactiva</h3>
+                    <p>Ejercicios prácticos que permiten aplicar inmediatamente lo aprendido, reforzando el conocimiento mediante la acción.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 20%;"></div>
+                </div>
+                <p style="color: var(--text-secondary);">Progreso del curso: 20% completado</p>
+            </div>
+        </div>
+
+        <!-- Lección 1: El Pentagrama -->
+        <div class="lesson-card" id="lecciones">
+            <div class="lesson-header">
+                <div class="lesson-number">1</div>
+                <div>
+                    <div class="lesson-title">El Pentagrama: Tu Primera Casa Musical</div>
+                    <p class="lesson-subtitle">Fundamento básico para leer música</p>
+                </div>
+            </div>
+            
+            <div class="lesson-content">
+                <h3>¿Qué es el pentagrama?</h3>
+                <p>El pentagrama es el sistema de escritura musical estándar compuesto por 5 líneas horizontales y 4 espacios entre ellas donde se colocan las notas y otros símbolos musicales. Es el "hogar" donde viven las notas musicales.</p>
+                
+                <div class="staff-container">
+                    <div class="staff">
+                        <div class="clef">𝄞</div>
+                    </div>
+                    <div style="display: flex; justify-content: space-around; max-width: 400px; margin: 0 auto;">
+                        <div>
+                            <h4 style="color: var(--primary-color);">Líneas</h4>
+                            <p>1ª (inferior)</p>
+                            <p>2ª</p>
+                            <p>3ª</p>
+                            <p>4ª</p>
+                            <p>5ª (superior)</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary-color);">Espacios</h4>
+                            <p>1º (inferior)</p>
+                            <p>2º</p>
+                            <p>3º</p>
+                            <p>4º (superior)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="learning-tip">
+                    <h4><i class="fas fa-brain"></i> Técnica de Memorización</h4>
+                    <p><strong>Para las líneas (de abajo hacia arriba):</strong> "Mi Sol Si Re Fa" (Memoriza esta frase: "Mi Soledad Si Reina Feliz")</p>
+                    <p><strong>Para los espacios (de abajo hacia arriba):</strong> "Fa La Do Mi" (Piensa en "Falta Amor Domingo Miércoles")</p>
+                </div>
+
+                <div class="exercise-box">
+                    <div class="exercise-title">
+                        <i class="fas fa-pencil-alt"></i>
+                        Ejercicio Práctico: Familiarización con el Pentagrama
+                    </div>
+                    <ol style="margin-left: 1.5rem;">
+                        <li>Dibuja 5 pentagramas completos en una hoja de papel</li>
+                        <li>Numera las líneas del 1 al 5 (de abajo hacia arriba)</li>
+                        <li>Numera los espacios del 1 al 4 (de abajo hacia arriba)</li>
+                        <li>Escribe los nombres de las líneas y espacios usando las reglas mnemotécnicas</li>
+                        <li>Dibuja la clave de Sol al inicio de cada pentagrama</li>
+                    </ol>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#" class="btn btn-secondary">
+                            <i class="fas fa-download"></i> Descargar Hoja de Trabajo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lección 2: Las Notas en el Teclado -->
+        <div class="lesson-card">
+            <div class="lesson-header">
+                <div class="lesson-number">2</div>
+                <div>
+                    <div class="lesson-title">Las 7 Notas Musicales</div>
+                    <p class="lesson-subtitle">Do, Re, Mi, Fa, Sol, La, Si</p>
+                </div>
+            </div>
+            
+            <div class="lesson-content">
+                <h3>El Teclado: Tu Mapa Musical Visual</h3>
+                <p>El teclado del piano es la herramienta perfecta para visualizar las notas musicales y entender su relación. Observa cuidadosamente el patrón de teclas blancas y negras que se repite a lo largo del teclado.</p>
+                
+                <div class="keyboard">
+                    <div class="key"><span class="key-label">Do</span></div>
+                    <div class="key black"><span class="key-label">Do#</span></div>
+                    <div class="key"><span class="key-label">Re</span></div>
+                    <div class="key black"><span class="key-label">Re#</span></div>
+                    <div class="key"><span class="key-label">Mi</span></div>
+                    <div class="key"><span class="key-label">Fa</span></div>
+                    <div class="key black"><span class="key-label">Fa#</span></div>
+                    <div class="key"><span class="key-label">Sol</span></div>
+                    <div class="key black"><span class="key-label">Sol#</span></div>
+                    <div class="key"><span class="key-label">La</span></div>
+                    <div class="key black"><span class="key-label">La#</span></div>
+                    <div class="key"><span class="key-label">Si</span></div>
+                </div>
+
+                <div class="tip-box">
+                    <h4><i class="fas fa-star"></i> Patrón Fundamental</h4>
+                    <p>Observa cuidadosamente que entre las notas Mi-Fa y Si-Do <strong>NO</strong> hay tecla negra. Este detalle es crucial para entender la estructura de la música occidental:</p>
+                    <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                        <li>La distancia entre Mi y Fa es un <strong>semitono</strong></li>
+                        <li>La distancia entre Si y Do es un <strong>semitono</strong></li>
+                        <li>Entre todas las demás notas naturales hay un <strong>tono completo</strong> (con tecla negra en medio)</li>
+                    </ul>
+                </div>
+
+                <div class="exercise-box">
+                    <div class="exercise-title">
+                        <i class="fas fa-hand-point-right"></i>
+                        Ejercicio de Exploración: Encuentra Todas las Notas
+                    </div>
+                    <ol style="margin-left: 1.5rem;">
+                        <li>Busca un grupo de 2 teclas negras en un teclado real o virtual</li>
+                        <li>La tecla blanca inmediatamente a la izquierda es <strong>Do</strong></li>
+                        <li>A partir de ahí, toca todas las teclas blancas en orden ascendente: Do-Re-Mi-Fa-Sol-La-Si-Do</li>
+                        <li>Repite el ejercicio encontrando otros Do en el teclado (más agudos o más graves)</li>
+                        <li>Intenta identificar todas las notas sin mirar las etiquetas</li>
+                    </ol>
+                    <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="#" class="btn btn-secondary">
+                            <i class="fas fa-keyboard"></i> Teclado Virtual
+                        </a>
+                        <a href="#" class="btn btn-secondary">
+                            <i class="fas fa-video"></i> Video Guía
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lección 3: Figuras Musicales -->
+        <div class="lesson-card">
+            <div class="lesson-header">
+                <div class="lesson-number">3</div>
+                <div>
+                    <div class="lesson-title">Figuras Musicales: La Duración del Sonido</div>
+                    <p class="lesson-subtitle">Redonda, Blanca, Negra, Corchea</p>
+                </div>
+            </div>
+            
+            <div class="lesson-content">
+                <h3>Las Figuras Rítmicas: Recipientes de Tiempo</h3>
+                <p>Cada figura musical representa una duración específica en el tiempo. Imagina que son diferentes tamaños de recipientes que contienen tiempo musical.</p>
+                
+                <div class="note-grid">
+                    <div class="note-card">
+                        <div class="note-symbol">𝅝</div>
+                        <div class="note-name">Redonda</div>
+                        <p>4 tiempos</p>
+                        <div class="rhythm-pattern">
+                            <div class="beat">1</div>
+                            <div class="beat">2</div>
+                            <div class="beat">3</div>
+                            <div class="beat">4</div>
+                        </div>
+                    </div>
+                    
+                    <div class="note-card">
+                        <div class="note-symbol">𝅗𝅥</div>
+                        <div class="note-name">Blanca</div>
+                        <p>2 tiempos</p>
+                        <div class="rhythm-pattern">
+                            <div class="beat">1</div>
+                            <div class="beat">2</div>
+                            <div class="beat rest">-</div>
+                            <div class="beat rest">-</div>
+                        </div>
+                    </div>
+                    
+                    <div class="note-card">
+                        <div class="note-symbol">𝅘𝅥</div>
+                        <div class="note-name">Negra</div>
+                        <p>1 tiempo</p>
+                        <div class="rhythm-pattern">
+                            <div class="beat">1</div>
+                            <div class="beat rest">-</div>
+                            <div class="beat rest">-</div>
+                            <div class="beat rest">-</div>
+                        </div>
+                    </div>
+                    
+                    <div class="note-card">
+                        <div class="note-symbol">𝅘𝅥𝅮</div>
+                        <div class="note-name">Corchea</div>
+                        <p>½ tiempo</p>
+                        <div class="rhythm-pattern">
+                            <div class="beat" style="font-size: 0.9rem;">1</div>
+                            <div class="beat" style="font-size: 0.9rem;">+</div>
+                            <div class="beat rest">-</div>
+                            <div class="beat rest">-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="learning-tip">
+                    <h4><i class="fas fa-clock"></i> Analogía del Pastel Musical</h4>
+                    <p>Imagina un pastel redondo que representa un compás de 4/4:</p>
+                    <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                        <li><strong>Redonda</strong> = Todo el pastel (4/4)</li>
+                        <li><strong>Blanca</strong> = Media torta (2/4) - necesitas 2 para completar el compás</li>
+                        <li><strong>Negra</strong> = Un cuarto (1/4) - necesitas 4 para completar el compás</li>
+                        <li><strong>Corchea</strong> = Un octavo (1/8) - necesitas 8 para completar el compás</li>
+                    </ul>
+                </div>
+
+                <div class="exercise-box">
+                    <div class="exercise-title">
+                        <i class="fas fa-drum"></i>
+                        Ejercicio Rítmico: Percusión Corporal
+                    </div>
+                    <ol style="margin-left: 1.5rem;">
+                        <li>Cuenta en voz alta: "1, 2, 3, 4" de manera constante</li>
+                        <li>Da palmadas en cada tiempo (negras)</li>
+                        <li>Ahora da palmadas solo en los tiempos 1 y 3 (blancas)</li>
+                        <li>Da una palmada larga sostenida durante los 4 tiempos (redonda)</li>
+                        <li>Para corcheas, cuenta "1-y-2-y-3-y-4-y" y da palmadas en cada sílaba</li>
+                        <li>Combina diferentes figuras: redonda + 2 negras, 4 corcheas + 1 blanca, etc.</li>
+                    </ol>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#" class="btn btn-secondary">
+                            <i class="fas fa-drumstick-bite"></i> Ejemplos de Ritmos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lección 4: Compás de 4/4 -->
+        <div class="lesson-card">
+            <div class="lesson-header">
+                <div class="lesson-number">4</div>
+                <div>
+                    <div class="lesson-title">El Compás 4/4: El Ritmo Universal</div>
+                    <p class="lesson-subtitle">4 tiempos por compás</p>
+                </div>
+            </div>
+            
+            <div class="lesson-content">
+                <h3>Entendiendo la Firma de Tiempo</h3>
+                <p>El compás 4/4, también llamado "tiempo común", es el más utilizado en la música popular occidental. Indica cómo se organizan los tiempos en la música.</p>
+                
+                <div style="text-align: center; margin: 3rem 0;">
+                    <div class="time-signature">
+                        <div class="top">4</div>
+                        <div class="bottom">4</div>
+                    </div>
+                    <div style="margin-top: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+                        <p><strong>Número superior (4):</strong> Indica que hay 4 tiempos en cada compás</p>
+                        <p><strong>Número inferior (4):</strong> Indica que cada tiempo equivale a una negra (1/4)</p>
+                    </div>
+                </div>
+
+                <div style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: var(--shadow); margin: 3rem 0;">
+                    <h4 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary-color);">Ejemplo Visual de Compás 4/4</h4>
+                    <div class="time-example">
+                        <span>𝅘𝅥</span>
+                        <span>𝅘𝅥</span>
+                        <span>𝅘𝅥</span>
+                        <span>𝅘𝅥</span>
+                        <div class="bar-line"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-around; max-width: 400px; margin: 0 auto; padding-top: 1rem;">
+                        <span style="font-weight: bold;">1</span>
+                        <span style="font-weight: bold;">2</span>
+                        <span style="font-weight: bold;">3</span>
+                        <span style="font-weight: bold;">4</span>
+                        <span></span>
+                    </div>
+                    <p style="text-align: center; margin-top: 1.5rem;">Este compás contiene 4 negras, completando los 4 tiempos requeridos</p>
+                </div>
+
+                <div class="exercise-box">
+                    <div class="exercise-title">
+                        <i class="fas fa-metronome"></i>
+                        Ejercicio de Reconocimiento Rítmico
+                    </div>
+                    <ol style="margin-left: 1.5rem;">
+                        <li>Selecciona una canción que te guste (preferiblemente pop o rock)</li>
+                        <li>Intenta identificar y contar los tiempos "1, 2, 3, 4" siguiendo el ritmo</li>
+                        <li>Marca el primer tiempo de cada compás con una palmada más fuerte</li>
+                        <li>Los otros tiempos con palmadas suaves</li>
+                        <li>Intenta identificar si la canción tiene compás de 4/4 (la mayoría lo tienen)</li>
+                        <li>Experimenta con canciones de diferentes géneros</li>
+                    </ol>
+                    <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="#" class="btn btn-secondary">
+                            <i class="fas fa-headphones"></i> Lista de Reproducción
+                        </a>
+                        <a href="#" class="btn btn-secondary">
+                            <i class="fas fa-question-circle"></i> ¿Cómo Identificarlo?
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lección 5: Primeras Notas -->
+        <div class="lesson-card">
+            <div class="lesson-header">
+                <div class="lesson-number">5</div>
+                <div>
+                    <div class="lesson-title">Tus Primeras Notas: Do, Re, Mi</div>
+                    <p class="lesson-subtitle">Comenzando con las bases</p>
+                </div>
+            </div>
+            
+            <div class="lesson-content">
+                <h3>Ubicación en el Pentagrama</h3>
+                <p>Vamos a aprender a identificar y ubicar las tres primeras notas en clave de Sol: Do, Re y Mi. Estas notas forman la base para entender la lectura musical.</p>
+                
+                <div class="staff-container">
+                    <div class="staff">
+                        <div class="clef">𝄞</div>
+                        <!-- Do (espacio bajo la primera línea) -->
+                        <div class="note note-quarter" style="left: 80px; top: 130px;"></div>
+                        <div style="position: absolute; left: 105px; top: 130px; font-size: 1rem; font-weight: bold;">Do</div>
+                        
+                        <!-- Re (primera línea) -->
+                        <div class="note note-quarter" style="left: 160px; top: 110px;"></div>
+                        <div style="position: absolute; left: 185px; top: 110px; font-size: 1rem; font-weight: bold;">Re</div>
+                        
+                        <!-- Mi (primer espacio) -->
+                        <div class="note note-quarter" style="left: 240px; top: 90px;"></div>
+                        <div style="position: absolute; left: 265px; top: 90px; font-size: 1rem; font-weight: bold;">Mi</div>
+                    </div>
+                </div>
+
+                <div class="note-grid">
+                    <div class="note-card" style="background: #fef3c7;">
+                        <div class="note-symbol">𝅘𝅥</div>
+                        <div class="note-name">Do</div>
+                        <p>Línea adicional inferior</p>
+                        <p>Debajo de la primera línea</p>
+                    </div>
+                    <div class="note-card" style="background: #dbeafe;">
+                        <div class="note-symbol">𝅘𝅥</div>
+                        <div class="note-name">Re</div>
+                        <p>En la primera línea</p>
+                        <p>La más baja del pentagrama</p>
+                    </div>
+                    <div class="note-card" style="background: #dcfce7;">
+                        <div class="note-symbol">𝅘𝅥</div>
+                        <div class="note-name">Mi</div>
+                        <p>Primer espacio</p>
+                        <p>Entre 1ª y 2ª línea</p>
+                    </div>
+                </div>
+
+                <div class="learning-tip">
+                    <h4><i class="fas fa-graduation-cap"></i> Estrategias de Aprendizaje Efectivo</h4>
+                    <ol style="margin-left: 1.5rem; margin-top: 1rem;">
+                        <li><strong>Aprende de a pocas notas:</strong> Domina perfectamente estas 3 notas antes de avanzar</li>
+                        <li><strong>Usa referencias visuales:</strong> Do está "colgado" abajo del pentagrama, Re está en la línea inferior, Mi en el primer espacio</li>
+                        <li><strong>Practica diariamente:</strong> 10-15 minutos diarios son más efectivos que sesiones largas esporádicas</li>
+                        <li><strong>Asocia sonido con posición:</strong> Canta las notas mientras las ves en el pentagrama</li>
+                    </ol>
+                </div>
+
+                <div class="exercise-box">
+                    <div class="exercise-title">
+                        <i class="fas fa-music"></i>
+                        Ejercicio Integrado: Lectura y Práctica
+                    </div>
+                    <ol style="margin-left: 1.5rem;">
+                        <li>Dibuja 5 pentagramas con clave de Sol</li>
+                        <li>Coloca 5 notas Do en diferentes posiciones (usando línea adicional)</li>
+                        <li>Coloca 5 notas Re en la primera línea</li>
+                        <li>Coloca 5 notas Mi en el primer espacio</li>
+                        <li>Canta las notas mientras las escribes: "Do, Re, Mi" ascendente y "Mi, Re, Do" descendente</li>
+                        <li>Intenta tocar estas notas en un instrumento si tienes acceso a uno</li>
+                    </ol>
+                    <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="#" class="btn btn-secondary">
+                            <i class="fas fa-download"></i> Plantilla de Pentagramas
+                        </a>
+                        <a href="#" class="btn btn-secondary">
+                            <i class="fas fa-microphone"></i> Grabadora de Voz
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Plan de Estudio -->
+        <div class="lesson-card">
+            <div class="lesson-header">
+                <div class="lesson-number"><i class="fas fa-calendar-alt"></i></div>
+                <div>
+                    <div class="lesson-title">Plan de Estudio Personalizado</div>
+                    <p class="lesson-subtitle">Cronograma recomendado para 8 semanas</p>
+                </div>
+            </div>
+            
+            <div class="lesson-content">
+                <h3>Ruta de Aprendizaje Óptima</h3>
+                <p>Sigue este plan estructurado para asimilar los conceptos de manera progresiva y efectiva:</p>
+                
+                <div style="margin: 3rem 0;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                        <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: var(--shadow); border-left: 4px solid var(--primary-color);">
+                            <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Semana 1-2</h4>
+                            <ul style="margin-left: 1.5rem;">
+                                <li>Dominar el pentagrama y clave de Sol</li>
+                                <li>Memorizar nombres de líneas y espacios</li>
+                                <li>Practicar escritura musical básica</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: var(--shadow); border-left: 4px solid var(--secondary-color);">
+                            <h4 style="color: var(--secondary-color); margin-bottom: 1rem;">Semana 3-4</h4>
+                            <ul style="margin-left: 1.5rem;">
+                                <li>Aprender notas Do, Re, Mi en pentagrama</li>
+                                <li>Practicar lectura de estas notas</li>
+                                <li>Introducción a figuras rítmicas básicas</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: var(--shadow); border-left: 4px solid var(--accent-color);">
+                            <h4 style="color: var(--accent-color); margin-bottom: 1rem;">Semana 5-6</h4>
+                            <ul style="margin-left: 1.5rem;">
+                                <li>Introducir notas Fa, Sol, La, Si</li>
+                                <li>Practicar combinaciones rítmicas</li>
+                                <li>Ejercicios de lectura combinada</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: var(--shadow); border-left: 4px solid var(--success-color);">
+                            <h4 style="color: var(--success-color); margin-bottom: 1rem;">Semana 7-8</h4>
+                            <ul style="margin-left: 1.5rem;">
+                                <li>Lectura de melodías simples</li>
+                                <li>Introducción a alteraciones (sostenidos/bemoles)</li>
+                                <li>Ejercicios de dictado musical básico</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tip-box">
+                    <h4><i class="fas fa-chart-line"></i> Recomendaciones para el Éxito</h4>
+                    <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                        <li><strong>Consistencia:</strong> Practica al menos 15-20 minutos diarios</li>
+                        <li><strong>Variedad:</strong> Alterna entre ejercicios escritos, auditivos y prácticos</li>
+                        <li><strong>Paciencia:</strong> No te frustres, el aprendizaje musical es progresivo</li>
+                        <li><strong>Aplicación:</strong> Intenta tocar pequeñas melodías con lo aprendido</li>
+                    </ul>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-file-download"></i> Descargar Plan Completo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h3 style="color: var(--primary-color); margin-bottom: 1.5rem; font-family: 'Playfair Display', serif;">Teoría Musical Paso a Paso</h3>
+            <p>Un método visual e interactivo para aprender música desde cero</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p style="margin-top: 2rem;">© 2023 Todos los derechos reservados</p>
+        </div>
+    </div>
+</body>
+</html>
