@@ -583,6 +583,34 @@
             background-color: #128C7E;
         }
 
+        .btn-ver-mas {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-ver-mas:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-ver-mas a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: block;
+        }
+
+        .btn-ver-mas a:hover {
+            color: #F5943A;
+        }
+
         /* Estilos responsive */
         @media (max-width: 768px) {
             .logo-container {
@@ -683,7 +711,8 @@
         </div>
     </section>
 
-    <section class="container">
+    
+<section class="container">
         <h2 class="section-title">Metodología de Enseñanza</h2>
         <div class="methodology">
             <h3 class="methodology-title">Enfoque Pedagógico Integral</h3>
@@ -693,13 +722,19 @@
                     <p>Nuestro programa incluye una sólida formación en teoría musical, lectura de partituras, historia
                         y apreciación musical. Estas clases proporcionan las bases fundamentales para una comprensión
                         profunda del lenguaje musical.</p>
-                        <button><a href="modulo_a.html">Ver clases</a></button>
+                    <button class="btn-ver-mas"><a href="modulo_a.html">Ver Más</a></button>
                 </div>
                 <div class="methodology-item">
                     <h4><i class="fas fa-music"></i> Clases Prácticas (Instrumental)</h4>
                     <p>La aplicación práctica de los conocimientos teóricos se desarrolla mediante sesiones individuales
                         y grupales, donde los estudiantes perfeccionan su técnica, interpretación y expresividad con su
                         instrumento elegido.</p>
+                    <button class="btn-ver-mas"><a href="modulo_b.html">Ver Más</a></button>
+                </div>
+                <div class="methodology-item">
+                    <h4><i class="fas fa-music"></i>Los Pequeños Héroes de Acosta Ñu (Obra de Teatro Musical)</h4>
+                    <p>Esta obra honra la memoria de los niños de Acosta Ñu, transformando su sacrificio en inspiración para las nuevas generaciones. Cada niño que participa se convierte en un pequeño embajador de la historia paraguaya.</p>
+                    <button class="btn-ver-mas"><a href="obra_teatro.html">Ver Más</a></button>
                 </div>
             </div>
         </div>

@@ -1,279 +1,1027 @@
-)); gap: 1rem; margin: 2rem 0;">
-                    <div style="background: var(--bg-secondary); padding: 1.5rem; border-radius: 10px;">
-                        <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Semana 1-2</h4>
-                        <p><strong>Pentagrama y Clave de Sol</strong></p>
-                        <ul style="margin-left: 1rem; margin-top: 0.5rem;">
-                            <li>Memorizar líneas y espacios</li>
-                            <li>Dibujar pentagramas correctamente</li>
-                            <li>Identificar la clave de Sol</li>
-                        </ul>
-                    </div>
-                    
-                    <div style="background: var(--bg-secondary); padding: 1.5rem; border-radius: 10px;">
-                        <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Semana 3-4</h4>
-                        <p><strong>Notas Do, Re, Mi</strong></p>
-                        <ul style="margin-left: 1rem; margin-top: 0.5rem;">
-                            <li>Ubicar en el pentagrama</li>
-                            <li>Tocar en teclado/piano</li>
-                            <li>Cantar con entonación correcta</li>
-                        </ul>
-                    </div>
-                    
-                    <div style="background: var(--bg-secondary); padding: 1.5rem; border-radius: 10px;">
-                        <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Semana 5-6</h4>
-                        <p><strong>Figuras Musicales</strong></p>
-                        <ul style="margin-left: 1rem; margin-top: 0.5rem;">
-                            <li>Redonda, blanca, negra, corchea</li>
-                            <li>Ejercicios de ritmo</li>
-                            <li>Compás 4/4</li>
-                        </ul>
-                    </div>
-                    
-                    <div style="background: var(--bg-secondary); padding: 1.5rem; border-radius: 10px;">
-                        <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Semana 7-8</h4>
-                        <p><strong>Práctica Integral</strong></p>
-                        <ul style="margin-left: 1rem; margin-top: 0.5rem;">
-                            <li>Leer melodías simples</li>
-                            <li>Combinar ritmo y melodía</li>
-                            <li>Evaluación y repaso</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="tip-box">
-                    <h4><i class="fas fa-trophy"></i> Consejos para el Éxito</h4>
-                    <p><strong>Consistencia:</strong> Mejor 15 minutos diarios que 2 horas una vez por semana</p>
-                    <p><strong>Paciencia:</strong> La lectura musical es como aprender un nuevo idioma</p>
-                    <p><strong>Práctica activa:</strong> No solo leas, ¡canta y toca lo que lees!</p>
-                    <p><strong>Diversión:</strong> Usa canciones que te gusten para practicar</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Recursos Adicionales -->
-        <div class="lesson-card">
-            <div class="lesson-header">
-                <div class="lesson-number"><i class="fas fa-book"></i></div>
-                <div>
-                    <div class="lesson-title">Recursos y Herramientas</div>
-                    <p style="opacity: 0.9;">Todo lo que necesitas para practicar</p>
-                </div>
-            </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎵 Clase de Música Interactiva</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .section h2 {
+            color: #5d4e75;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #ff6b6b;
+            padding-bottom: 10px;
+        }
+        
+        .figures-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .figure-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .figure-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+        
+        .figure-card:hover::before {
+            animation: shine 0.7s ease-in-out;
+        }
+        
+        .figure-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); opacity: 0; }
+        }
+        
+        .figure-symbol {
+            font-size: 4em;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .rhythm-game {
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .beat-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .beat-btn {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: none;
+            font-size: 2em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .beat-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .beat-btn.active {
+            background: linear-gradient(135deg, #ff6b6b, #ffa500);
+            transform: scale(1.2);
+            animation: pulse 0.3s ease;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1.2); }
+            50% { transform: scale(1.4); }
+            100% { transform: scale(1.2); }
+        }
+        
+        .control-btn {
+            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .control-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .piano-keys {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            position: relative;
+            height: 200px;
+        }
+        
+        .key {
+            cursor: pointer;
+            transition: all 0.1s ease;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            font-weight: bold;
+            user-select: none;
+        }
+        
+        .white-key {
+            width: 50px;
+            height: 200px;
+            background: white;
+            border: 2px solid #333;
+            border-radius: 0 0 8px 8px;
+            z-index: 1;
+        }
+        
+        .black-key {
+            width: 30px;
+            height: 120px;
+            background: #333;
+            color: white;
+            position: absolute;
+            z-index: 2;
+            border-radius: 0 0 5px 5px;
+        }
+        
+        .key:active, .key.pressed {
+            transform: translateY(3px);
+            box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4ecdc4, #44a08d);
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+        
+        .quiz-container {
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        
+        .quiz-question {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .quiz-option {
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .quiz-option:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+        
+        .quiz-option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+        
+        .quiz-option.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+        
+        .score-display {
+            text-align: center;
+            font-size: 1.5em;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
             
-            <div class="lesson-content">
-                <div class="grid">
-                    <div style="background: var(--bg-secondary); padding: 1.5rem; border-radius: 10px; text-align: center;">
-                        <div style="font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem;">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <h4>Apps Recomendadas</h4>
-                        <ul style="text-align: left; margin-top: 1rem;">
-                            <li>Simply Piano (gratis)</li>
-                            <li>Yousician (gratis/premium)</li>
-                            <li>Music Theory Helper</li>
-                            <li>Tenuto (identificación de notas)</li>
-                        </ul>
-                    </div>
-                    
-                    <div style="background: var(--bg-secondary); padding: 1.5rem; border-radius: 10px; text-align: center;">
-                        <div style="font-size: 2rem; color: var(--success-color); margin-bottom: 1rem;">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <h4>Sitios Web Útiles</h4>
-                        <ul style="text-align: left; margin-top: 1rem;">
-                            <li>musictheory.net</li>
-                            <li>tenuto (práctica online)</li>
-                            <li>IMSLP (partituras gratis)</li>
-                            <li>YouTube (tutoriales)</li>
-                        </ul>
-                    </div>
-                    
-                    <div style="background: var(--bg-secondary); padding: 1.5rem; border-radius: 10px; text-align: center;">
-                        <div style="font-size: 2rem; color: var(--warning-color); margin-bottom: 1rem;">
-                            <i class="fas fa-tools"></i>
-                        </div>
-                        <h4>Materiales Físicos</h4>
-                        <ul style="text-align: left; margin-top: 1rem;">
-                            <li>Cuaderno pentagramado</li>
-                            <li>Lápiz y borrador</li>
-                            <li>Metrónomo (o app)</li>
-                            <li>Teclado/piano (opcional)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Evaluación y Siguiente Nivel -->
-        <div class="lesson-card">
-            <div class="lesson-header">
-                <div class="lesson-number"><i class="fas fa-graduation-cap"></i></div>
-                <div>
-                    <div class="lesson-title">¿Estás Listo para el Siguiente Nivel?</div>
-                    <p style="opacity: 0.9;">Autoevaluación de conocimientos básicos</p>
-                </div>
-            </div>
+            .figures-container {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
             
-            <div class="lesson-content">
-                <h3>Lista de Verificación</h3>
-                <p>Marca cada habilidad que hayas dominado:</p>
-                
-                <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 10px; margin: 1.5rem 0;">
-                    <div style="display: grid; gap: 1rem;">
-                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                            <input type="checkbox" style="transform: scale(1.2);">
-                            <span>Puedo dibujar un pentagrama con clave de Sol correctamente</span>
-                        </label>
-                        
-                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                            <input type="checkbox" style="transform: scale(1.2);">
-                            <span>Conozco el nombre de las 5 líneas del pentagrama</span>
-                        </label>
-                        
-                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                            <input type="checkbox" style="transform: scale(1.2);">
-                            <span>Conozco el nombre de los 4 espacios del pentagrama</span>
-                        </label>
-                        
-                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                            <input type="checkbox" style="transform: scale(1.2);">
-                            <span>Puedo ubicar Do, Re, Mi en el pentagrama</span>
-                        </label>
-                        
-                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                            <input type="checkbox" style="transform: scale(1.2);">
-                            <span>Distingo entre redonda, blanca, negra y corchea</span>
-                        </label>
-                        
-                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                            <input type="checkbox" style="transform: scale(1.2);">
-                            <span>Entiendo qué significa el compás 4/4</span>
-                        </label>
-                        
-                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                            <input type="checkbox" style="transform: scale(1.2);">
-                            <span>Puedo tocar Do, Re, Mi en un teclado/piano</span>
-                        </label>
-                        
-                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                            <input type="checkbox" style="transform: scale(1.2);">
-                            <span>Puedo cantar Do, Re, Mi con la entonación correcta</span>
-                        </label>
-                    </div>
-                </div>
+            .beat-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5em;
+            }
+            
+            .piano-keys {
+                transform: scale(0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🎵 Música para Principiantes 🎵</h1>
+            <p>¡Descubre el maravilloso mundo de la música de forma interactiva!</p>
+        </header>
 
-                <div id="evaluation-result" style="margin-top: 2rem; padding: 1.5rem; border-radius: 10px; display: none;">
-                    <!-- El resultado se mostrará aquí -->
+        <section class="section">
+            <h2>🎼 Figuras Musicales</h2>
+            <p>Las figuras musicales representan la duración de los sonidos. ¡Haz clic en cada una para escuchar su duración!</p>
+            <div class="figures-container">
+                <div class="figure-card" onclick="playNote('redonda')">
+                    <span class="figure-symbol">𝅝</span>
+                    <h3>Redonda</h3>
+                    <p>4 tiempos</p>
                 </div>
-
-                <div style="text-align: center; margin-top: 2rem;">
-                    <button class="btn btn-primary" onclick="evaluateProgress()">
-                        <i class="fas fa-check-circle"></i>
-                        Evaluar mi Progreso
-                    </button>
+                <div class="figure-card" onclick="playNote('blanca')">
+                    <span class="figure-symbol">𝅗𝅥</span>
+                    <h3>Blanca</h3>
+                    <p>2 tiempos</p>
                 </div>
-
-                <div class="tip-box" style="margin-top: 2rem;">
-                    <h4><i class="fas fa-arrow-right"></i> Próximos Pasos</h4>
-                    <p>Una vez domines estos conceptos básicos, estarás listo para:</p>
-                    <ul style="margin-left: 1rem; margin-top: 0.5rem;">
-                        <li>Aprender las notas Fa, Sol, La, Si</li>
-                        <li>Estudiar alteraciones (sostenidos y bemoles)</li>
-                        <li>Practicar diferentes compases (2/4, 3/4)</li>
-                        <li>Leer melodías completas</li>
-                        <li>Introducción a los acordes</li>
-                    </ul>
+                <div class="figure-card" onclick="playNote('negra')">
+                    <span class="figure-symbol">♩</span>
+                    <h3>Negra</h3>
+                    <p>1 tiempo</p>
+                </div>
+                <div class="figure-card" onclick="playNote('corchea')">
+                    <span class="figure-symbol">♪</span>
+                    <h3>Corchea</h3>
+                    <p>1/2 tiempo</p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Footer -->
-        <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(255, 255, 255, 0.9); border-radius: 15px;">
-            <h3 style="color: var(--primary-color); margin-bottom: 1rem;">¡Felicitaciones por Comenzar tu Viaje Musical!</h3>
-            <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
-                Recuerda: cada músico profesional comenzó exactamente donde estás tú ahora. 
-                La clave está en la práctica constante y la paciencia contigo mismo.
-            </p>
-            <div style="margin-top: 2rem;">
-                <span style="font-size: 2rem;">🎵 ¡Que la música te acompañe! 🎵</span>
+        <section class="section">
+            <h2>🔇 Silencios Musicales</h2>
+            <p>Los silencios son tan importantes como los sonidos. ¡Escucha la diferencia!</p>
+            <div class="figures-container">
+                <div class="figure-card" onclick="playSilence('silencio_redonda')">
+                    <span class="figure-symbol">𝄻</span>
+                    <h3>Silencio de Redonda</h3>
+                    <p>4 tiempos de silencio</p>
+                </div>
+                <div class="figure-card" onclick="playSilence('silencio_blanca')">
+                    <span class="figure-symbol">𝄼</span>
+                    <h3>Silencio de Blanca</h3>
+                    <p>2 tiempos de silencio</p>
+                </div>
+                <div class="figure-card" onclick="playSilence('silencio_negra')">
+                    <span class="figure-symbol">𝄽</span>
+                    <h3>Silencio de Negra</h3>
+                    <p>1 tiempo de silencio</p>
+                </div>
+                <div class="figure-card" onclick="playSilence('silencio_corchea')">
+                    <span class="figure-symbol">𝄾</span>
+                    <h3>Silencio de Corchea</h3>
+                    <p>1/2 tiempo de silencio</p>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <section class="section">
+            <h2>🥁 Juego de Ritmo Interactivo</h2>
+            <div class="rhythm-game">
+                <h3>¡Sigue el Ritmo!</h3>
+                <p>Presiona los botones siguiendo el patrón que se reproduce</p>
+                <div class="beat-buttons">
+                    <button class="beat-btn" data-beat="1">1</button>
+                    <button class="beat-btn" data-beat="2">2</button>
+                    <button class="beat-btn" data-beat="3">3</button>
+                    <button class="beat-btn" data-beat="4">4</button>
+                </div>
+                <div>
+                    <button class="control-btn" onclick="startRhythm()">▶️ Iniciar Ritmo</button>
+                    <button class="control-btn" onclick="stopRhythm()">⏹️ Detener</button>
+                    <button class="control-btn" onclick="changeRhythm()">🔄 Cambiar Patrón</button>
+                </div>
+                <div class="score-display">
+                    Puntuación: <span id="score">0</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>🎹 Piano Virtual - Melodía</h2>
+            <p>¡Toca las teclas para crear melodías! Las notas se muestran cuando presionas.</p>
+            <div class="piano-keys" id="piano">
+                <div class="key white-key" data-note="C4" data-freq="261.63">Do</div>
+                <div class="key black-key" data-note="C#4" data-freq="277.18" style="left: 35px;"></div>
+                <div class="key white-key" data-note="D4" data-freq="293.66">Re</div>
+                <div class="key black-key" data-note="D#4" data-freq="311.13" style="left: 85px;"></div>
+                <div class="key white-key" data-note="E4" data-freq="329.63">Mi</div>
+                <div class="key white-key" data-note="F4" data-freq="349.23">Fa</div>
+                <div class="key black-key" data-note="F#4" data-freq="369.99" style="left: 185px;"></div>
+                <div class="key white-key" data-note="G4" data-freq="392.00">Sol</div>
+                <div class="key black-key" data-note="G#4" data-freq="415.30" style="left: 235px;"></div>
+                <div class="key white-key" data-note="A4" data-freq="440.00">La</div>
+                <div class="key black-key" data-note="A#4" data-freq="466.16" style="left: 285px;"></div>
+                <div class="key white-key" data-note="B4" data-freq="493.88">Si</div>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="control-btn" onclick="playMelody()">🎵 Tocar Melodía de Ejemplo</button>
+                <button class="control-btn" onclick="playScale()">🎼 Tocar Escala</button>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>🎯 Quiz Musical</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="question">¿Cuántos tiempos dura una figura blanca?</div>
+                <div class="quiz-options" id="options">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">4 tiempos</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">2 tiempos</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">1 tiempo</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">1/2 tiempo</div>
+                </div>
+            </div>
+            <div class="score-display">
+                Preguntas correctas: <span id="quiz-score">0</span> / <span id="total-questions">0</span>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>🎵 Armonía - Acordes Básicos</h2>
+            <p>Los acordes son combinaciones de notas que suenan juntas. ¡Prueba estos acordes básicos!</p>
+            <div style="text-align: center; margin: 20px 0;">
+                <button class="control-btn" onclick="playChord(['C4', 'E4', 'G4'])">Do Mayor (C)</button>
+                <button class="control-btn" onclick="playChord(['F4', 'A4', 'C5'])">Fa Mayor (F)</button>
+                <button class="control-btn" onclick="playChord(['G4', 'B4', 'D5'])">Sol Mayor (G)</button>
+                <button class="control-btn" onclick="playProgression()">🔄 Progresión I-IV-V</button>
+            </div>
+        </section>
     </div>
 
     <script>
-        // Función para evaluar el progreso
-        function evaluateProgress() {
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            const checked = Array.from(checkboxes).filter(cb => cb.checked);
-            const total = checkboxes.length;
-            const percentage = Math.round((checked.length / total) * 100);
-            
-            const resultDiv = document.getElementById('evaluation-result');
-            resultDiv.style.display = 'block';
-            
-            let message, bgColor, textColor, icon;
-            
-            if (percentage >= 90) {
-                message = "¡Excelente! Estás listo para el siguiente nivel. Has dominado los conceptos básicos.";
-                bgColor = "var(--success-color)";
-                textColor = "white";
-                icon = "🏆";
-            } else if (percentage >= 70) {
-                message = "¡Muy bien! Tienes una base sólida. Repasa los puntos que faltan y estarás listo.";
-                bgColor = "var(--warning-color)";
-                textColor = "white";
-                icon = "⭐";
-            } else if (percentage >= 50) {
-                message = "Buen progreso, pero necesitas más práctica. Dedica más tiempo a los conceptos básicos.";
-                bgColor = "var(--accent-color)";
-                textColor = "white";
-                icon = "📚";
-            } else {
-                message = "Necesitas más práctica con los fundamentos. No te desanimes, ¡sigue practicando!";
-                bgColor = "var(--error-color)";
-                textColor = "white";
-                icon = "💪";
+        // Audio Context para generar sonidos
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        
+        let rhythmInterval;
+        let currentBeat = 0;
+        let score = 0;
+        let rhythmPattern = [1, 0, 1, 0]; // 1 = beat, 0 = no beat
+        let rhythmPatterns = [
+            [1, 0, 1, 0],
+            [1, 1, 0, 1],
+            [1, 0, 0, 1],
+            [1, 1, 1, 0]
+        ];
+        let currentPatternIndex = 0;
+        let expectedBeat = false;
+        let isRhythmPlaying = false;
+
+        // Quiz variables
+        let currentQuiz = 0;
+        let quizScore = 0;
+        const quizzes = [
+            {
+                question: "¿Cuántos tiempos dura una figura blanca?",
+                options: ["4 tiempos", "2 tiempos", "1 tiempo", "1/2 tiempo"],
+                correct: 1
+            },
+            {
+                question: "¿Cuál es el silencio más largo?",
+                options: ["Silencio de corchea", "Silencio de negra", "Silencio de blanca", "Silencio de redonda"],
+                correct: 3
+            },
+            {
+                question: "¿Cuántas corcheas equivalen a una negra?",
+                options: ["1", "2", "3", "4"],
+                correct: 1
+            },
+            {
+                question: "¿Qué notas forman el acorde de Do Mayor?",
+                options: ["Do-Mi-Sol", "Do-Fa-La", "Re-Fa-La", "Mi-Sol-Si"],
+                correct: 0
             }
-            
-            resultDiv.innerHTML = `
-                <div style="background: ${bgColor}; color: ${textColor}; padding: 1.5rem; border-radius: 10px; text-align: center;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">${icon}</div>
-                    <h4>Tu Progreso: ${percentage}% (${checked.length}/${total})</h4>
-                    <p style="margin-top: 1rem; font-size: 1.1rem;">${message}</p>
-                </div>
-            `;
-            
-            // Scroll suave al resultado
-            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        ];
+
+        // Función para crear y reproducir tonos
+        function playTone(frequency, duration, startTime = 0) {
+            return audioContext.resume().then(() => {
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime + startTime);
+                
+                gainNode.gain.setValueAtTime(0, audioContext.currentTime + startTime);
+                gainNode.gain.linearRampToValueAtTime(0.3, audioContext.currentTime + startTime + 0.01);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + startTime + duration);
+                
+                oscillator.start(audioContext.currentTime + startTime);
+                oscillator.stop(audioContext.currentTime + startTime + duration);
+            });
         }
 
-        // Animación para las teclas del piano
-        document.querySelectorAll('.key').forEach(key => {
-            key.addEventListener('click', function() {
-                this.style.transform = 'translateY(2px)';
+        // Reproducir figuras musicales
+        function playNote(type) {
+            const durations = {
+                redonda: 2.0,
+                blanca: 1.0,
+                negra: 0.5,
+                corchea: 0.25
+            };
+            playTone(440, durations[type]);
+        }
+
+        // Reproducir silencios
+        function playSilence(type) {
+            const durations = {
+                silencio_redonda: 2.0,
+                silencio_blanca: 1.0,
+                silencio_negra: 0.5,
+                silencio_corchea: 0.25
+            };
+            
+            // Reproducir un tono muy bajo para simular el silencio y mostrar la duración
+            playTone(100, 0.05);
+            setTimeout(() => {
+                playTone(440, 0.1);
+            }, durations[type] * 1000);
+        }
+
+        // Piano virtual
+        document.getElementById('piano').addEventListener('click', function(e) {
+            if (e.target.classList.contains('key')) {
+                const freq = parseFloat(e.target.dataset.freq);
+                playTone(freq, 0.5);
+                
+                e.target.classList.add('pressed');
                 setTimeout(() => {
-                    this.style.transform = '';
-                }, 150);
+                    e.target.classList.remove('pressed');
+                }, 200);
+            }
+        });
+
+        // Tocar melodía de ejemplo
+        function playMelody() {
+            const melody = [261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 493.88, 523.25];
+            melody.forEach((freq, index) => {
+                setTimeout(() => {
+                    playTone(freq, 0.4);
+                }, index * 500);
+            });
+        }
+
+        // Tocar escala
+        function playScale() {
+            const scale = [261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 493.88];
+            scale.forEach((freq, index) => {
+                setTimeout(() => {
+                    playTone(freq, 0.3);
+                }, index * 300);
+            });
+        }
+
+        // Tocar acordes
+        function playChord(notes) {
+            const frequencies = {
+                'C4': 261.63, 'D4': 293.66, 'E4': 329.63, 'F4': 349.23,
+                'G4': 392.00, 'A4': 440.00, 'B4': 493.88, 'C5': 523.25,
+                'D5': 587.33, 'E5': 659.25
+            };
+            
+            notes.forEach(note => {
+                if (frequencies[note]) {
+                    playTone(frequencies[note], 1.5);
+                }
+            });
+        }
+
+        // Progresión de acordes
+        function playProgression() {
+            const chords = [
+                ['C4', 'E4', 'G4'],  // Do Mayor
+                ['F4', 'A4', 'C5'],  // Fa Mayor
+                ['G4', 'B4', 'D5']   // Sol Mayor
+            ];
+            
+            chords.forEach((chord, index) => {
+                setTimeout(() => {
+                    playChord(chord);
+                }, index * 2000);
+            });
+        }
+
+        // Juego de ritmo
+        function startRhythm() {
+            if (isRhythmPlaying) return;
+            
+            isRhythmPlaying = true;
+            currentBeat = 0;
+            const pattern = rhythmPatterns[currentPatternIndex];
+            
+            rhythmInterval = setInterval(() => {
+                // Limpiar beats anteriores
+                document.querySelectorAll('.beat-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Activar beat actual si está en el patrón
+                if (pattern[currentBeat]) {
+                    const btn = document.querySelector(`[data-beat="${currentBeat + 1}"]`);
+                    btn.classList.add('active');
+                    playTone(800, 0.1);
+                    expectedBeat = true;
+                } else {
+                    expectedBeat = false;
+                }
+                
+                // Actualizar progreso
+                const progress = ((currentBeat + 1) / 4) * 100;
+                document.getElementById('progress').style.width = progress + '%';
+                
+                currentBeat = (currentBeat + 1) % 4;
+                
+                // Reiniciar progreso después de completar el patrón
+                if (currentBeat === 0) {
+                    setTimeout(() => {
+                        document.getElementById('progress').style.width = '0%';
+                    }, 100);
+                }
+            }, 600);
+        }
+
+        function stopRhythm() {
+            if (rhythmInterval) {
+                clearInterval(rhythmInterval);
+                isRhythmPlaying = false;
+                document.querySelectorAll('.beat-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.getElementById('progress').style.width = '0%';
+            }
+        }
+
+        function changeRhythm() {
+            stopRhythm();
+            currentPatternIndex = (currentPatternIndex + 1) % rhythmPatterns.length;
+        }
+
+        // Event listeners para los botones de ritmo
+        document.querySelectorAll('.beat-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (isRhythmPlaying && expectedBeat) {
+                    score += 10;
+                    document.getElementById('score').textContent = score;
+                    playTone(1000, 0.1);
+                } else if (isRhythmPlaying) {
+                    score = Math.max(0, score - 5);
+                    document.getElementById('score').textContent = score;
+                }
             });
         });
 
-        // Efecto de progreso en las lecciones
-        function updateProgress() {
-            const cards = document.querySelectorAll('.lesson-card');
-            cards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
+        // Quiz functionality
+        function loadQuiz() {
+            if (currentQuiz < quizzes.length) {
+                const quiz = quizzes[currentQuiz];
+                document.getElementById('question').textContent = quiz.question;
                 
+                const optionsContainer = document.getElementById('options');
+                optionsContainer.innerHTML = '';
+                
+                quiz.options.forEach((option, index) => {
+                    const optionElement = document.createElement('div');
+                    optionElement.className = 'quiz-option';
+                    optionElement.textContent = option;
+                    optionElement.onclick = () => checkAnswer(optionElement, index === quiz.correct);
+                    optionsContainer.appendChild(optionElement);
+                });
+            }
+        }
+
+        function checkAnswer(element, isCorrect) {
+            // Prevenir múltiples clics
+            if (element.classList.contains('correct') || element.classList.contains('incorrect')) {
+                return;
+            }
+            
+            const allOptions = document.querySelectorAll('.quiz-option');
+            allOptions.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if (isCorrect) {
+                element.classList.add('correct');
+                quizScore++;
+                playTone(800, 0.3);
+            } else {
+                element.classList.add('incorrect');
+                // Mostrar la respuesta correcta
+                const correctOption = allOptions[quizzes[currentQuiz].correct];
+                correctOption.classList.add('correct');
+                playTone(400, 0.3);
+            }
+            
+            document.getElementById('quiz-score').textContent = quizScore;
+            document.getElementById('total-questions').textContent = currentQuiz + 1;
+            
+            // Cargar siguiente pregunta después de 2 segundos
+            setTimeout(() => {
+                currentQuiz++;
+                if (currentQuiz < quizzes.length) {
+                    loadQuiz();
+                } else {
+                    // Quiz completado
+                    document.getElementById('question').textContent = 
+                        `¡Quiz completado! Puntuación final: ${quizScore}/${quizzes.length}`;
+                    document.getElementById('options').innerHTML = 
+                        '<button class="control-btn" onclick="restartQuiz()">🔄 Reiniciar Quiz</button>';
+                }
+            }, 2000);
+        }
+
+        function restartQuiz() {
+            currentQuiz = 0;
+            quizScore = 0;
+            document.getElementById('quiz-score').textContent = '0';
+            document.getElementById('total-questions').textContent = '0';
+            loadQuiz();
+        }
+
+        // Inicializar
+        loadQuiz();
+        
+        // Activar audio context con la primera interacción del usuario
+        document.addEventListener('click', function() {
+            if (audioContext.state === 'suspended') {
+                audioContext.resume();
+            }
+        }, { once: true });
+
+        // Efectos visuales adicionales
+        function createParticle(x, y) {
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.left = x + 'px';
+            particle.style.top = y + 'px';
+            particle.style.width = '10px';
+            particle.style.height = '10px';
+            particle.style.background = '#ff6b6b';
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '1000';
+            particle.style.animation = 'particleFloat 1s ease-out forwards';
+            
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 1000);
+        }
+
+        // Agregar CSS para animación de partículas
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes particleFloat {
+                0% {
+                    transform: translateY(0) scale(1);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-50px) scale(0);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Agregar efectos de partículas cuando se toca el piano
+        document.getElementById('piano').addEventListener('click', function(e) {
+            if (e.target.classList.contains('key')) {
+                const rect = e.target.getBoundingClientRect();
+                createParticle(rect.left + rect.width / 2, rect.top);
+            }
+        });
+
+        // Metrónomo visual
+        let metronomeInterval;
+        let metronomeActive = false;
+
+        function startMetronome(bpm = 120) {
+            if (metronomeActive) return;
+            
+            metronomeActive = true;
+            const interval = 60000 / bpm; // milisegundos por beat
+            
+            metronomeInterval = setInterval(() => {
+                playTone(1000, 0.1);
+                
+                // Efecto visual en toda la página
+                document.body.style.background = 'linear-gradient(135deg, #ff6b6b 0%, #764ba2 100%)';
                 setTimeout(() => {
-                    card.style.transition = 'all 0.6s ease';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, index * 200);
+                    document.body.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                }, 100);
+            }, interval);
+        }
+
+        function stopMetronome() {
+            if (metronomeInterval) {
+                clearInterval(metronomeInterval);
+                metronomeActive = false;
+            }
+        }
+
+        // Agregar controles de metrónomo después del piano
+        const metronomeSection = document.createElement('div');
+        metronomeSection.innerHTML = `
+            <section class="section">
+                <h2>⏱️ Metrónomo</h2>
+                <p>El metrónomo te ayuda a mantener el tiempo. ¡Ajusta la velocidad!</p>
+                <div style="text-align: center; margin: 20px 0;">
+                    <input type="range" id="bpmSlider" min="60" max="200" value="120" 
+                           style="width: 200px; margin: 10px;">
+                    <div>BPM: <span id="bpmDisplay">120</span></div>
+                    <button class="control-btn" onclick="startMetronome(document.getElementById('bpmSlider').value)">
+                        ▶️ Iniciar Metrónomo
+                    </button>
+                    <button class="control-btn" onclick="stopMetronome()">
+                        ⏹️ Detener Metrónomo
+                    </button>
+                </div>
+            </section>
+        `;
+        
+        // Insertar metrónomo después del piano
+        const pianoSection = document.querySelector('.section:nth-child(4)');
+        pianoSection.parentNode.insertBefore(metronomeSection, pianoSection.nextSibling);
+
+        // Event listener para el slider del BPM
+        setTimeout(() => {
+            const bpmSlider = document.getElementById('bpmSlider');
+            const bpmDisplay = document.getElementById('bpmDisplay');
+            
+            bpmSlider.addEventListener('input', function() {
+                bpmDisplay.textContent = this.value;
+                if (metronomeActive) {
+                    stopMetronome();
+                    startMetronome(this.value);
+                }
+            });
+        }, 100);
+
+        // Ejercicios de oído musical
+        function createEarTraining() {
+            const earSection = document.createElement('div');
+            earSection.innerHTML = `
+                <section class="section">
+                    <h2>👂 Entrenamiento Auditivo</h2>
+                    <div class="quiz-container">
+                        <h3>¿Cuál nota es más aguda?</h3>
+                        <div style="text-align: center; margin: 20px 0;">
+                            <button class="control-btn" onclick="playEarTest()">🎵 Reproducir Notas</button>
+                        </div>
+                        <div class="quiz-options">
+                            <div class="quiz-option" onclick="checkEarAnswer(this, 'primera')">Primera Nota</div>
+                            <div class="quiz-option" onclick="checkEarAnswer(this, 'segunda')">Segunda Nota</div>
+                        </div>
+                        <div id="ear-result" style="text-align: center; margin-top: 15px; font-weight: bold;"></div>
+                    </div>
+                </section>
+            `;
+            
+            // Insertar después del quiz
+            const quizSection = document.querySelector('.section:nth-child(6)');
+            quizSection.parentNode.insertBefore(earSection, quizSection.nextSibling);
+        }
+
+        let earTestNotes = [];
+        let correctEarAnswer = '';
+
+        function playEarTest() {
+            const frequencies = [261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 493.88];
+            const note1 = frequencies[Math.floor(Math.random() * frequencies.length)];
+            let note2 = frequencies[Math.floor(Math.random() * frequencies.length)];
+            
+            // Asegurar que las notas sean diferentes
+            while (note2 === note1) {
+                note2 = frequencies[Math.floor(Math.random() * frequencies.length)];
+            }
+            
+            earTestNotes = [note1, note2];
+            correctEarAnswer = note1 > note2 ? 'primera' : 'segunda';
+            
+            // Reproducir primera nota
+            playTone(note1, 0.8);
+            
+            // Reproducir segunda nota después de un breve pausa
+            setTimeout(() => {
+                playTone(note2, 0.8);
+            }, 1000);
+            
+            // Limpiar resultado anterior
+            document.getElementById('ear-result').textContent = '';
+            document.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+                opt.style.pointerEvents = 'auto';
             });
         }
 
-        // Ejecutar animación al cargar
-        window.addEventListener('load', updateProgress);
+        function checkEarAnswer(element, answer) {
+            document.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.style.pointerEvents = 'none';
+            });
+            
+            const resultElement = document.getElementById('ear-result');
+            
+            if (answer === correctEarAnswer) {
+                element.classList.add('correct');
+                resultElement.textContent = '¡Correcto! 🎉';
+                resultElement.style.color = '#28a745';
+                playTone(800, 0.3);
+            } else {
+                element.classList.add('incorrect');
+                resultElement.textContent = '❌ Intenta de nuevo';
+                resultElement.style.color = '#dc3545';
+                playTone(400, 0.3);
+            }
+            
+            setTimeout(() => {
+                document.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.classList.remove('correct', 'incorrect');
+                    opt.style.pointerEvents = 'auto';
+                });
+                resultElement.textContent = '';
+            }, 2000);
+        }
+
+        // Crear sección de entrenamiento auditivo
+        setTimeout(createEarTraining, 500);
+
+        // Función para crear ondas visuales cuando se reproduce sonido
+        function createVisualWave() {
+            const wave = document.createElement('div');
+            wave.style.position = 'fixed';
+            wave.style.top = '50%';
+            wave.style.left = '50%';
+            wave.style.width = '20px';
+            wave.style.height = '20px';
+            wave.style.borderRadius = '50%';
+            wave.style.border = '2px solid rgba(255, 107, 107, 0.7)';
+            wave.style.transform = 'translate(-50%, -50%)';
+            wave.style.pointerEvents = 'none';
+            wave.style.zIndex = '999';
+            wave.style.animation = 'waveExpand 1s ease-out forwards';
+            
+            document.body.appendChild(wave);
+            
+            setTimeout(() => {
+                wave.remove();
+            }, 1000);
+        }
+
+        // Agregar CSS para animación de ondas
+        const waveStyle = document.createElement('style');
+        waveStyle.textContent = `
+            @keyframes waveExpand {
+                0% {
+                    transform: translate(-50%, -50%) scale(1);
+                    opacity: 0.7;
+                }
+                100% {
+                    transform: translate(-50%, -50%) scale(10);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(waveStyle);
+
+        // Modificar la función playTone para incluir efectos visuales
+        const originalPlayTone = playTone;
+        playTone = function(frequency, duration, startTime = 0) {
+            createVisualWave();
+            return originalPlayTone(frequency, duration, startTime);
+        };
+
+        // Mensaje de bienvenida interactivo
+        setTimeout(() => {
+            if (confirm('¡Bienvenido a tu clase de música interactiva! 🎵\n\n¿Te gustaría comenzar con una demostración de todas las funciones?')) {
+                playWelcomeDemo();
+            }
+        }, 1000);
+
+        function playWelcomeDemo() {
+            // Secuencia de demostración
+            setTimeout(() => playNote('negra'), 500);
+            setTimeout(() => playMelody(), 1500);
+            setTimeout(() => {
+                startMetronome(100);
+                setTimeout(stopMetronome, 3000);
+            }, 4000);
+            setTimeout(() => playChord(['C4', 'E4', 'G4']), 8000);
+        }
+
+        console.log('🎵 Página de música cargada exitosamente!');
+        console.log('🎹 Funciones disponibles: Piano virtual, Juego de ritmo, Quiz musical, Metrónomo, Entrenamiento auditivo');
     </script>
 </body>
 </html>

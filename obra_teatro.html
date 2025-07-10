@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Pequeños Héroes de Acosta Ñu</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #27ae60;
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 30px;
+        }
+        .escena {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .musica {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .letra {
+            background: #e8f5e8;
+            border: 2px solid #28a745;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        .dialogo {
+            background: #f0f8ff;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 8px 0;
+        }
+        .personaje {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .escenografia {
+            background: #f5f0ff;
+            border: 2px solid #9b59b6;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .instrumento {
+            background: #ffe6e6;
+            color: #c0392b;
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        .intro {
+            text-align: center;
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .partitura {
+            background: #fafafa;
+            border: 2px dashed #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+        .partitura img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .grid-instrumentos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .instrumento-card {
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .instrumento-card h4 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .piano { background: #fff0f5; }
+        .percusion { background: #f0fff0; }
+        .guitarra-popular { background: #f0f8ff; }
+        .guitarra-clasica { background: #fff8dc; }
+        .cello { background: #fdf5e6; }
+        .flauta { background: #f5fffa; }
+
+        .floating-elements {
+            position: fixed;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .greek-letter {
+            position: absolute;
+            font-size: 3rem;
+            color: #8B4513;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        /* Botón flotante para volver al home */
+        .floating-home-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            border: none;
+            cursor: pointer;
+        }
+
+        .floating-home-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+            background: linear-gradient(135deg, #5a67d8, #667eea);
+        }
+
+        .floating-home-btn:active {
+            transform: translateY(-2px) scale(1.05);
+        }
+
+        .floating-home-btn::before {
+            content: '🏠';
+            font-size: 1.3rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Responsive para móviles */
+        @media (max-width: 768px) {
+            .floating-home-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .floating-home-btn::before {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            .grid-instrumentos {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎭 Los Pequeños Héroes de Acosta Ñu 🎭</h1>
+        
+        <div class="intro">
+            <p><strong>Obra de Teatro Musical</strong></p>
+            <p><strong>Idea Original del Lic. Julio Franco</strong></p>
+            <p>Para 7 niños de 8-9 años</p>
+            <p>Duración aproximada: 20-25 minutos</p>
+            <p><em>Un homenaje a los niños héroes del Paraguay</em></p>
+        </div>
+
+        <div class="escenografia">
+            <h3>🎨 ESCENOGRAFÍA ECONÓMICA:</h3>
+            <ul>
+                <li><strong>Fondo:</strong> Tela blanca o papel kraft pintado con cielo azul y nubes</li>
+                <li><strong>Árboles:</strong> Cartón pintado de verde, sostenidos con bases</li>
+                <li><strong>Banderas:</strong> Tela roja, blanca y azul en palos de madera</li>
+                <li><strong>Accesorios:</strong> Sombreros de papel, flores de papel para el final</li>
+            </ul>
+        </div>
+
+        <div class="escenografia">
+            <h3>👕 VESTUARIO DETALLADO:</h3>
+            <ul>
+                <li><strong>Soldaditos Niños:</strong> Camisa blanca, pantalón de tela oscura (azul o negro), pañuelo rojo al cuello, sombrero de papel pintado como kepí militar, fajín rojo en la cintura</li>
+                <li><strong>Madre Patria:</strong> Vestido blanco largo o falda blanca + blusa, corona de flores o diadema dorada, capa o chal azul</li>
+                <li><strong>Ángel de la Paz:</strong> Túnica blanca (sábana), alas de cartón blanco, diadema plateada o dorada</li>
+                <li><strong>Narrador:</strong> Camisa blanca, chaleco oscuro, corbata o moño</li>
+                <li><strong>Todos:</strong> Pies descalzos o alpargatas, opcional: maquillaje suave en mejillas</li>
+            </ul>
+        </div>
+
+        <h2>PERSONAJES:</h2>
+        <div class="dialogo">
+            <p><strong>Narrador(a):</strong> Niño/a con buena dicción</p>
+            <p><strong>Capitán Niño:</strong> Líder del grupo</p>
+            <p><strong>Soldaditos 1, 2, 3:</strong> Compañeros valientes</p>
+            <p><strong>Madre Patria:</strong> Representa a Paraguay</p>
+            <p><strong>Ángel de la Paz:</strong> Mensajero de esperanza</p>
+            <p><strong>Coro:</strong> Todos los niños participan</p>
+        </div>
+
+        <div class="escena">
+            <h2>ESCENA 1: "NUESTRA PATRIA QUERIDA"</h2>
+            
+            <div class="musica">
+                <p><strong>🎵 MÚSICA:</strong> <span class="instrumento">Piano y Guitarra Clásica</span> - Melodía suave y patriótica</p>
+                <p><strong>Estilo:</strong> Marcha lenta, solemne pero esperanzadora</p>
+                <p><strong>⭐ MOMENTO ESTELAR:</strong> <span class="instrumento">PIANO</span> - Solo de introducción de 8 compases</p>
+            </div>
+
+            <div class="dialogo">
+                <p><span class="personaje">Narrador:</span> "Había una vez una tierra hermosa llamada Paraguay, donde vivían niños valientes que amaban mucho a su patria."</p>
+            </div>
+
+            <div class="letra">
+                <h4>CANCIÓN: "NUESTRA PATRIA"</h4>
+                <p><strong>Coro de todos los niños:</strong></p>
+                <p>🎵 "Paraguay, Paraguay,<br>
+                tierra de amor y paz,<br>
+                niños valientes somos,<br>
+                te cuidaremos más." 🎵</p>
+                <p><em>(Repetir 2 veces)</em></p>
+            </div>
+
+            <div class="musica">
+                <p><strong>Instrumentos:</strong> <span class="instrumento">Piano</span> lleva la melodía principal, <span class="instrumento">Guitarra Clásica</span> acompaña con arpegios suaves, <span class="instrumento">Flauta</span> hace adornos melódicos en el segundo verso</p>
+            </div>
+
+            <div class="partitura">
+                <p>🎼 <strong>Partitura "Nuestra Patria"</strong></p>
+                <p><em>Espacio para insertar imagen de partitura</em></p>
+            </div>
+        </div>
+
+        <div class="escena">
+            <h2>ESCENA 2: "MARCHA DE LOS PEQUEÑOS HÉROES"</h2>
+            
+            <div class="musica">
+                <p><strong>🎵 MÚSICA:</strong> <span class="instrumento">¡PERCUSIÓN PROTAGONISTA!</span> - Marcha militar adaptada para niños</p>
+                <p><strong>Estilo:</strong> Marcha enérgica pero no agresiva, como de desfile</p>
+                <p><strong>⭐ MOMENTO ESTELAR:</strong> <span class="instrumento">REDOBLANTE + BOMBO</span> - Solo de percusión de 16 compases</p>
+            </div>
+
+            <div class="dialogo">
+                <p><span class="personaje">Capitán Niño:</span> "¡Soldaditos, en formación! ¡Marchemos por nuestra patria!"</p>
+                <p><span class="personaje">Soldaditos:</span> (marchan en el lugar) "¡Sí, capitán!"</p>
+            </div>
+
+            <div class="letra">
+                <h4>CANCIÓN: "MARCHAMOS JUNTOS"</h4>
+                <p><strong>Marcha cantada con percusión fuerte:</strong></p>
+                <p>🎵 "¡Izquierda, derecha, marchamos ya!<br>
+                ¡Izquierda, derecha, por Paraguay!<br>
+                Con el tambor que nos marca el son,<br>
+                ¡marchamos todos con el corazón!" 🎵</p>
+            </div>
+
+            <div class="musica">
+                <p><strong>Instrumentos:</strong> <span class="instrumento">Redoblante</span> marca el paso militar, <span class="instrumento">Bombo</span> en tiempos fuertes, <span class="instrumento">Guitarra Popular</span> rasguea acordes marcados</p>
+            </div>
+
+            <div class="partitura">
+                <p>🎼 <strong>Partitura "Marchamos Juntos"</strong></p>
+                <p><em>Espacio para insertar imagen de partitura</em></p>
+            </div>
+        </div>
+
+        <div class="escena">
+            <h2>ESCENA 3: "LA LLAMADA DEL DEBER"</h2>
+            
+            <div class="musica">
+                <p><strong>🎵 MÚSICA:</strong> <span class="instrumento">Guitarra Popular protagonista</span></p>
+                <p><strong>Estilo:</strong> Ritmo de chacarera suave, folkórico</p>
+                <p><strong>⭐ MOMENTO ESTELAR:</strong> <span class="instrumento">GUITARRA POPULAR</span> - Solo de rasgueo y punteo de 12 compases</p>
+            </div>
+
+            <div class="dialogo">
+                <p><span class="personaje">Madre Patria:</span> "Mis pequeños hijos, nuestra tierra necesita protección. ¿Están listos para ser valientes?"</p>
+                <p><span class="personaje">Capitán Niño:</span> "¡Sí! Somos pequeños pero tenemos corazones grandes."</p>
+                <p><span class="personaje">Soldadito 1:</span> "¡Protegeremos nuestra casa!"</p>
+                <p><span class="personaje">Soldadito 2:</span> "¡Juntos somos más fuertes!"</p>
+            </div>
+
+            <div class="letra">
+                <h4>CANCIÓN: "PEQUEÑOS PERO VALIENTES"</h4>
+                <p><strong>Solo del Capitán Niño, coro responde:</strong></p>
+                <p>🎵 <strong>Capitán:</strong> "¿Quién protege esta tierra?"<br>
+                <strong>Coro:</strong> "¡Nosotros con valor!"<br>
+                <strong>Capitán:</strong> "¿Quién nunca se rinde?"<br>
+                <strong>Coro:</strong> "¡El paraguayo con honor!" 🎵</p>
+            </div>
+
+            <div class="musica">
+                <p><strong>Instrumentos:</strong> <span class="instrumento">Guitarra Popular</span> lleva melodía y ritmo, <span class="instrumento">Redoblante</span> marca suavemente, <span class="instrumento">Piano</span> acompaña con acordes</p>
+            </div>
+
+            <div class="partitura">
+                <p>🎼 <strong>Partitura "Pequeños Pero Valientes"</strong></p>
+                <p><em>Espacio para insertar imagen de partitura</em></p>
+            </div>
+        </div>
+
+        <div class="escena">
+            <h2>ESCENA 4: "MELODÍA DEL CORAZÓN"</h2>
+            
+            <div class="musica">
+                <p><strong>🎵 MÚSICA:</strong> <span class="instrumento">Cello y Flauta - Dúo emotivo</span></p>
+                <p><strong>Estilo:</strong> Melancólico pero inspirador, como una oración musical</p>
+                <p><strong>⭐ MOMENTO ESTELAR:</strong> <span class="instrumento">CELLO</span> - Solo melódico principal, luego <span class="instrumento">FLAUTA</span> responde creando diálogo musical</p>
+            </div>
+
+            <div class="dialogo">
+                <p><span class="personaje">Narrador:</span> "Llegó un día difícil en Acosta Ñu. Los niños sabían que tenían que ser muy valientes."</p>
+                <p><span class="personaje">Soldadito 3:</span> "Aunque somos pequeños, nuestro amor por Paraguay es gigante."</p>
+                <p><span class="personaje">Capitán Niño:</span> "No importa lo que pase, siempre recordarán que fuimos valientes."</p>
+            </div>
+
+            <div class="letra">
+                <h4>CANCIÓN: "CORAZONES VALIENTES"</h4>
+                <p><strong>Solo suave, todos cantando:</strong></p>
+                <p>🎵 "No somos grandes, pero somos fuertes,<br>
+                en nuestro pecho late el corazón,<br>
+                por Paraguay, por Paraguay,<br>
+                damos todo nuestro amor." 🎵</p>
+            </div>
+
+            <div class="musica">
+                <p><strong>Instrumentos:</strong> <span class="instrumento">Cello</span> lleva melodía principal, <span class="instrumento">Flauta</span> hace contrapunto melodioso, <span class="instrumento">Piano</span> muy suave de fondo</p>
+            </div>
+
+            <div class="partitura">
+                <p>🎼 <strong>Partitura "Corazones Valientes"</strong></p>
+                <p><em>Espacio para insertar imagen de partitura</em></p>
+            </div>
+        </div>
+
+        <div class="escena">
+            <h2>ESCENA 5: "LA TRANSFORMACIÓN"</h2>
+            
+            <div class="musica">
+                <p><strong>🎵 MÚSICA:</strong> <span class="instrumento">Guitarra Clásica protagonista</span> - Transformación musical</p>
+                <p><strong>Estilo:</strong> De melancólico a esperanzador, como un amanecer musical</p>
+                <p><strong>⭐ MOMENTO ESTELAR:</strong> <span class="instrumento">GUITARRA CLÁSICA</span> - Solo de arpegios y melodía, técnica clásica brillante</p>
+            </div>
+
+            <div class="dialogo">
+                <p><span class="personaje">Ángel de la Paz:</span> (aparece con alas de papel blanco) "Los niños valientes nunca mueren, se convierten en estrellas que cuidan su patria."</p>
+                <p><span class="personaje">Madre Patria:</span> "Por eso, cada 16 de agosto, todos los niños de Paraguay celebran su día."</p>
+                <p><span class="personaje">Narrador:</span> "Y desde ese día, todos los niños paraguayos son héroes también."</p>
+            </div>
+
+            <div class="letra">
+                <h4>CANCIÓN: "SOMOS TODOS HÉROES"</h4>
+                <p><strong>Crescendo gradual, todos cantando:</strong></p>
+                <p>🎵 "Somos todos héroes,<br>
+                somos todos valientes,<br>
+                cada niño paraguayo<br>
+                lleva a Acosta Ñu en su mente." 🎵</p>
+            </div>
+
+            <div class="musica">
+                <p><strong>Instrumentos:</strong> <span class="instrumento">Guitarra Clásica</span> lleva melodía principal con arpegios, <span class="instrumento">Piano</span> acompaña, <span class="instrumento">Flauta</span> adorna, <span class="instrumento">Cello</span> hace base armónica</p>
+            </div>
+
+            <div class="partitura">
+                <p>🎼 <strong>Partitura "Somos Todos Héroes"</strong></p>
+                <p><em>Espacio para insertar imagen de partitura</em></p>
+            </div>
+        </div>
+
+        <div class="escena">
+            <h2>ESCENA 6: "GRAN FINALE - POLKA DE LA VICTORIA"</h2>
+            
+            <div class="musica">
+                <p><strong>🎵 MÚSICA:</strong> <span class="instrumento">¡TODOS LOS INSTRUMENTOS JUNTOS!</span> - Polka paraguaya festiva</p>
+                <p><strong>Estilo:</strong> Polka tradicional, alegre y enérgica</p>
+                <p><strong>⭐ MOMENTO ESTELAR:</strong> <span class="instrumento">GRAN ENSAMBLE</span> - Cada instrumento tiene su momento de brillo en una ronda musical</p>
+            </div>
+
+            <div class="dialogo">
+                <p><span class="personaje">Todos los niños:</span> "¡Hoy es nuestro día! ¡El día de todos los niños!"</p>
+                <p><span class="personaje">Capitán Niño:</span> "Recordamos a los héroes pequeños, y celebramos que somos el futuro de Paraguay."</p>
+            </div>
+
+            <div class="letra">
+                <h4>CANCIÓN FINAL: "VIVAN LOS NIÑOS" (Polka)</h4>
+                <p><strong>Todos cantando y bailando polka:</strong></p>
+                <p>🎵 "¡Vivan los niños de Paraguay!<br>
+                ¡Vivan los niños de corazón!<br>
+                Somos el futuro, somos la luz,<br>
+                ¡viva Paraguay, viva la unión!" 🎵</p>
+                <p><em>(Repetir mientras bailan y lanzan flores de papel)</em></p>
+            </div>
+
+            <div class="musica">
+                <p><strong>Ronda de solos brillantes (8 compases cada uno):</strong></p>
+                <p>1. <span class="instrumento">Redoblante</span> - Redoble espectacular</p>
+                <p>2. <span class="instrumento">Bombo</span> - Ritmo marcado de polka</p>
+                <p>3. <span class="instrumento">Guitarra Popular</span> - Rasgueo enérgico</p>
+                <p>4. <span class="instrumento">Guitarra Clásica</span> - Arpegios rápidos</p>
+                <p>5. <span class="instrumento">Piano</span> - Melodía brillante</p>
+                <p>6. <span class="instrumento">Flauta</span> - Adornos agudos</p>
+                <p>7. <span class="instrumento">Cello</span> - Base rítmica potente</p>
+                <p>8. <span class="instrumento">¡TODOS JUNTOS!</span> - Final apoteósico</p>
+            </div>
+
+            <div class="partitura">
+                <p>🎼 <strong>Partitura "Vivan Los Niños" (Polka Final)</strong></p>
+                <p><em>Espacio para insertar imagen de partitura</em></p>
+            </div>
+        </div>
+
+        <div class="escenografia">
+            <h3>🎭 NOTAS PARA LA PUESTA EN ESCENA:</h3>
+            <ul>
+                <li><strong>Entrada:</strong> Los niños entran marchando suavemente al ritmo de la primera canción</li>
+                <li><strong>Escena 2:</strong> Marcha militar real, formación en línea, banderas en alto</li>
+                <li><strong>Movimientos:</strong> Simples pero coordinados - marchar, levantar banderas, abrazarse</li>
+                <li><strong>Cambio de escenas:</strong> Usar la música de transición mientras los niños se reposicionan</li>
+                <li><strong>Final:</strong> Todos se toman de las manos y hacen una reverencia</li>
+                <li><strong>Flores de papel:</strong> Preparar flores de papel para lanzar en el final</li>
+            </ul>
+        </div>
+
+        <div class="musica">
+            <h3>🎼 MOMENTOS ESTELARES DE CADA INSTRUMENTO:</h3>
+            <div class="grid-instrumentos">
+                <div class="instrumento-card piano">
+                    <h4>🎹 PIANO</h4>
+                    <p><strong>Escena 1:</strong> Solo de apertura (8 compases)</p>
+                    <p><strong>Final:</strong> Melodía principal en la polka</p>
+                </div>
+                <div class="instrumento-card percusion">
+                    <h4>🥁 PERCUSIÓN</h4>
+                    <p><strong>Escena 2:</strong> Marcha militar protagonista</p>
+                    <p><strong>Final:</strong> Redoble espectacular + bombo de polka</p>
+                </div>
+                <div class="instrumento-card guitarra-popular">
+                    <h4>🎸 GUITARRA POPULAR</h4>
+                    <p><strong>Escena 3:</strong> Solo de rasgueo y punteo</p>
+                    <p><strong>Final:</strong> Ritmo enérgico de polka</p>
+                </div>
+                <div class="instrumento-card guitarra-clasica">
+                    <h4>🎸 GUITARRA CLÁSICA</h4>
+                    <p><strong>Escena 5:</strong> Arpegios y técnica clásica</p>
+                    <p><strong>Final:</strong> Arpegios rápidos brillantes</p>
+                </div>
+                <div class="instrumento-card cello">
+                    <h4>🎻 CELLO</h4>
+                    <p><strong>Escena 4:</strong> Solo melódico emotivo</p>
+                    <p><strong>Final:</strong> Base rítmica potente</p>
+                </div>
+                <div class="instrumento-card flauta">
+                    <h4>🎵 FLAUTA</h4>
+                    <p><strong>Escena 4:</strong> Diálogo musical con cello</p>
+                    <p><strong>Final:</strong> Adornos agudos brillantes</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="intro">
+            <p><strong>MENSAJE FINAL:</strong></p>
+            <p><em>"Esta obra honra la memoria de los niños de Acosta Ñu, transformando su sacrificio en inspiración para las nuevas generaciones. Cada niño que participa se convierte en un pequeño embajador de la historia paraguaya."</em></p>
+        </div>
+    </div>
+
+    <!-- Volver al home -->
+
+    <a href="index.html" class="floating-home-btn" title="Volver al inicio"></a>
+</div>
+</body>
+</html>
