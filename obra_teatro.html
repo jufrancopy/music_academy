@@ -84,6 +84,68 @@
             margin: 15px 0;
         }
 
+        .galeria-escenografia {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            width: 100%;
+            /* ← CORRECCIÓN APLICADA */
+            box-sizing: border-box;
+            /* ← CORRECCIÓN APLICADA */
+            overflow: hidden;
+            /* ← CORRECCIÓN APLICADA */
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            /* ← CAMBIÓ de 300px a 280px */
+            gap: 20px;
+            margin-top: 20px;
+            width: 100%;
+            /* ← CORRECCIÓN APLICADA */
+            box-sizing: border-box;
+            /* ← CORRECCIÓN APLICADA */
+        }
+
+        .imagen-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 100%;
+            /* ← CORRECCIÓN APLICADA */
+        }
+
+        .imagen-card:hover {
+            transform: translateY(-5px);
+            /* ← CAMBIÓ: removí scale(1.02) */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .imagen-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+            max-width: 100%;
+            /* ← CORRECCIÓN APLICADA */
+            border: none;
+            /* ← CORRECCIÓN APLICADA */
+        }
+
+        .imagen-card:hover img {
+            transform: scale(1.02);
+            /* ← CAMBIÓ de scale(1.05) a scale(1.02) */
+        }
+
         .instrumento {
             background: #ffe6e6;
             color: #c0392b;
@@ -298,6 +360,56 @@
             </ul>
         </div>
 
+        <div class="galeria-escenografia">
+            <h3>🖼️ GALERÍA DE ESCENOGRAFÍA:</h3>
+            <p><em>Referencias visuales para la puesta en escena</em></p>
+            <div class="galeria-grid">
+                <div class="imagen-card">
+                    <img src="images/escenografia_c.jpeg" alt="ESCENA 1: 'NUESTRA PATRIA QUERIDA'">
+                    <div class="imagen-info">
+                        <h4>ESCENA 1: "NUESTRA PATRIA QUERIDA"</h4>
+                        <p>Vestido blanco, corona de flores, capa azul representando Paraguay</p>
+                    </div>
+                </div>
+                <div class="imagen-card">
+                    <img src="images/escenografia_a.jpeg" alt="Fondo campestre con cielo y nubes">
+                    <div class="imagen-info">
+                        <h4>Fondo Campestre</h4>
+                        <p>Paisaje de Acosta Ñu con cielo azul, nubes blancas y campo verde</p>
+                    </div>
+                </div>
+                <div class="imagen-card">
+                    <img src="images/escenografia_b.jpeg" alt="Soldaditos niños con uniformes">
+                    <div class="imagen-info">
+                        <h4>Vestuario Soldaditos</h4>
+                        <p>Uniformes sencillos: camisa blanca, pantalón oscuro, pañuelo rojo</p>
+                    </div>
+                </div>
+                
+                <div class="imagen-card">
+                    <img src="images/escenografia_d.jpeg" alt="Ángel de la Paz con túnica y alas">
+                    <div class="imagen-info">
+                        <h4>Ángel de la Paz</h4>
+                        <p>Túnica blanca, alas de cartón, diadema dorada simbolizando esperanza</p>
+                    </div>
+                </div>
+                <div class="imagen-card">
+                    <img src="images/escenografia_e.jpeg" alt="Banderas paraguayas y decoración patriótica">
+                    <div class="imagen-info">
+                        <h4>Elementos Patrióticos</h4>
+                        <p>Banderas, flores de papel, decoración en colores patrios</p>
+                    </div>
+                </div>
+                <div class="imagen-card">
+                    <img src="images/escenografia_f.jpeg" alt="Escena completa con todos los personajes">
+                    <div class="imagen-info">
+                        <h4>Escena Completa</h4>
+                        <p>Vista general del escenario con todos los elementos integrados</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <h2>PERSONAJES:</h2>
         <div class="dialogo">
             <p><strong>Narrador(a):</strong> Persona con buena dicción - Podría ser un niño o un persona mayor (Un
@@ -510,9 +622,9 @@
                 <h4>CANCIÓN: "SOMOS TODOS HÉROES"</h4>
                 <p><strong>Crescendo gradual, todos cantando:</strong></p>
                 <p>🎵 "Somos todos héroes,<br>
-                    somos todos valientes,<br>
-                    cada niño paraguayo<br>
-                    lleva a Acosta Ñu en su mente." 🎵</p>
+                    todos valientes,<br>
+                    en nuestra mente<br>
+                    Acosta Ñu por siempre." 🎵</p>
             </div>
 
             <!-- <div class="musica">
@@ -549,10 +661,8 @@
             <div class="letra">
                 <h4>CANCIÓN FINAL: "VIVAN LOS NIÑOS" (Polka)</h4>
                 <p><strong>Todos cantando y bailando polka:</strong></p>
-                <p>🎵 "¡Vivan los niños de Paraguay!<br>
-                    ¡Vivan los niños de corazón!<br>
-                    Somos el futuro, somos la luz,<br>
-                    ¡viva Paraguay, viva la unión!" 🎵</p>
+                <p>🎵 "¡Vivan los niños de este lugar!<br>
+                    ¡Vivan los niños del Paraguay!" 🎵</p>
                 <p><em>(Repetir mientras bailan y lanzan flores de papel)</em></p>
             </div>
 

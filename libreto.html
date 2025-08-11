@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Pequeños Héroes de Acosta Ñu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #87CEEB 0%, #98FB98 50%, #FFB6C1 100%);
+            min-height: 100vh;
+            padding: 20px;
+            animation: backgroundShift 15s infinite alternate;
+        }
+
+        @keyframes backgroundShift {
+            0% {
+                background: linear-gradient(135deg, #87CEEB 0%, #98FB98 50%, #FFB6C1 100%);
+            }
+
+            50% {
+                background: linear-gradient(135deg, #FFE4B5 0%, #F0E68C 50%, #DDA0DD 100%);
+            }
+
+            100% {
+                background: linear-gradient(135deg, #87CEEB 0%, #98FB98 50%, #FFB6C1 100%);
+            }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            border: 5px solid #FF6B6B;
+        }
+
+        .header {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '🎭✨🎪✨🎭';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        .title {
+            font-size: 2.8em;
+            margin: 20px 0 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: titleGlow 3s infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            0% {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+
+            100% {
+                text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.8);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        .content {
+            padding: 30px;
+            line-height: 1.8;
+        }
+
+        .personajes {
+            background: linear-gradient(45deg, #FFE4E1, #E0FFFF);
+            padding: 25px;
+            border-radius: 20px;
+            margin: 20px 0;
+            border: 3px solid #FF69B4;
+            box-shadow: 0 8px 16px rgba(255, 105, 180, 0.3);
+        }
+
+        .personajes h2 {
+            color: #FF1493;
+            font-size: 1.8em;
+            text-align: center;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .personajes ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .personajes li {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 15px;
+            border: 2px solid #FF69B4;
+            text-align: center;
+            font-weight: bold;
+            color: #8B008B;
+            transition: transform 0.3s ease;
+        }
+
+        .personajes li:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        .escena {
+            background: linear-gradient(135deg, #FFFACD, #F0FFFF);
+            margin: 25px 0;
+            padding: 25px;
+            border-radius: 20px;
+            border-left: 8px solid;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .escena:nth-child(odd) {
+            border-left-color: #32CD32;
+            background: linear-gradient(135deg, #F0FFF0, #FFFACD);
+        }
+
+        .escena:nth-child(even) {
+            border-left-color: #FF6347;
+            background: linear-gradient(135deg, #FFF0F5, #F0F8FF);
+        }
+
+        .escena::before {
+            content: '🌟';
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            animation: spin 4s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .escena h2 {
+            color: #8B0000;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 10px 15px;
+            border-radius: 15px;
+            display: inline-block;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .personaje {
+            font-weight: bold;
+            color: #4B0082;
+            background: linear-gradient(45deg, #FFE4E1, #E6E6FA);
+            padding: 8px 15px;
+            border-radius: 12px;
+            display: inline-block;
+            margin: 5px 0;
+            border: 2px solid #DA70D6;
+        }
+
+        .cancion {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 15px;
+            border: 3px solid #FF8C00;
+            position: relative;
+            box-shadow: 0 8px 16px rgba(255, 140, 0, 0.3);
+        }
+
+        .cancion::before {
+            content: '🎵🎶🎵';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FFD700;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 18px;
+            animation: musicNote 2s infinite ease-in-out;
+        }
+
+        @keyframes musicNote {
+
+            0%,
+            100% {
+                transform: translateX(-50%) scale(1);
+            }
+
+            50% {
+                transform: translateX(-50%) scale(1.1);
+            }
+        }
+
+        .cancion h3 {
+            color: #8B4513;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .letra {
+            font-style: italic;
+            color: #2F4F4F;
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 10px;
+        }
+
+        .dialogo {
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 12px;
+            border-left: 4px solid #4169E1;
+        }
+
+        .final {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4, #FECA57);
+            background-size: 300% 300%;
+            animation: gradientShift 4s ease infinite;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .final h2 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-box {
+            background: linear-gradient(45deg, #E6E6FA, #F0F8FF);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px solid #9370DB;
+            text-align: center;
+        }
+
+        .info-box strong {
+            color: #4B0082;
+            font-size: 1.2em;
+        }
+
+        .decoracion {
+            text-align: center;
+            font-size: 24px;
+            margin: 20px 0;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .title {
+                font-size: 2.2em;
+            }
+
+            .personajes ul {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Los Pequeños Héroes de Acosta Ñu</h1>
+            <div class="subtitle">La obra cuenta la historia de unos niños muy valientes en Paraguay durante un tiempo difícil, cuando había una guerra. En el campo de Acosta Ñu, estos pequeños héroes mostraron su amor por su patria. Aunque eran pequeños, tenían corazones enormes. Al final, se convirtieron en estrellas que cuidan Paraguay desde el cielo.
+Cada 16 de agosto, Paraguay celebra el Día del Niño para recordar a estos héroes. 
+
+</div>
+            <!-- <div class="subtitle">Duración aproximada: 20-25 minutos</div> -->
+        </div>
+
+        <div class="content">
+            <div class="personajes">
+                <h2>🎭 Personajes 🎭</h2>
+                <ul>
+                    <li>🎤 Jorge López</li>
+                    <li>⚔️ Elias Recalde</li>
+                    <li>👦 Eduardo Alliendre</li>
+                    <li>👦 Miguel Capurro</li>
+                    <li>👦 Gerardo Franco</li>
+                    <li>👩 Fátima Echeverria</li>
+                    <li>👼 Jessica (mamá de Horacio)</li>
+                    <li>🎵 Coro, todos los Niños del Tercer Grado</li>
+                </ul>
+            </div>
+
+            <div class="escena">
+                <h2>🌅 Escena 1: "Nuestra Patria Querida"</h2>
+
+                <div class="cancion">
+                    <h3>🎵 Canción Introductoria - Acosta Ñu - (Dm)</h3>
+                    <p><em>Eduardo Alliendre y Miguel Capurro interpretan el Canto Introductorio</em></p>
+                    <div class="letra">
+                        "Allá en mi tierra bordeando el monte,<br>
+                        se extiende el campo de Acosta Ñu.<br>
+                        Llano y florido que en su silencio,<br>
+                        recuerda aquella guerra guazú."
+                    </div>
+                </div>
+
+                <div class="dialogo">
+                    <div class="personaje">🎤 Jorge López:</div>
+                    Había una vez una tierra hermosa llamada Paraguay, donde vivían niños valientes que amaban mucho a
+                    su patria. En esos tiempos difíciles, cuando la guerra amenazaba la paz de sus hogares, los
+                    espíritus de estos pequeños valientes brillaban con fuerza.
+                </div>
+
+                <div class="cancion">
+                    <h3>🎶 Canción: "Che Retã Porã" - (D)</h3>
+                    <p><em>Se canta junto con el CORO</em></p>
+                    <div class="letra">
+                        "Paraguay che retã porã,<br>
+                        niños valientes, te van a cuidar,<br>
+                        Te van a cuidar... te van a cuidar,<br>
+                        Oh Paraguay che retã porã"
+                    </div>
+                </div>
+            </div>
+
+            <div class="escena">
+                <h2>🥁 Escena 2: "Marcha de los Pequeños Héroes"</h2>
+
+                <div class="dialogo">
+                    <div class="personaje">⚔️ Elias Recalde:</div>
+                    ¡Soldaditos, en formación! ¡Marchemos por nuestra patria!
+                </div>
+
+                <div class="dialogo">
+                    <div class="personaje">👦 TODOS:</div>
+                    ¡Sí, capitán!
+                </div>
+
+                <div class="cancion">
+                    <h3>🥁 Canción: "Marchamos con Valor" - (D)</h3>
+                    <p><em>(Marcha cantada con percusión fuerte)</em></p>
+                    <div class="letra">
+                        "¡Izquierda, derecha, marchamos ya!<br>
+                        ¡Izquierda, derecha, por Paraguay!<br>
+                        Con el tambor que marca el son,<br>
+                        ¡marchamos todos con valor!"
+                    </div>
+                </div>
+            </div>
+
+            <div class="escena">
+                <h2>📢 Escena 3: "La Llamada del Deber"</h2>
+
+                <div class="dialogo">
+                    <div class="personaje">👩 Fátima Echeverria:</div>
+                    Mis pequeños hijos, nuestra tierra necesita protección. ¿Están listos para ser valientes?
+                </div>
+
+                <div class="dialogo">
+                    <div class="personaje">⚔️ Elias Recalde:</div>
+                    ¡Sí! Somos pequeños pero tenemos corazones grandes.
+                </div>
+
+                <div class="dialogo">
+                    <div class="personaje">👦 Eduardo Alliendre:</div>
+                    ¡Protegeremos nuestra casa!
+                </div>
+
+                <div class="dialogo">
+                    <div class="personaje">👦 TODOS:</div>
+                    ¡Juntos somos más fuertes!
+                </div>
+
+                <div class="cancion">
+                    <h3>💪 Canción: "Pequeños Pero Valientes" - (E)</h3>
+                    <p><em>(Solo Capitán, coro responde)</em></p>
+                    <div class="letra">
+                        <strong>Capitán:</strong> ¿Quién protege esta tierra?<br>
+                        <strong>Coro:</strong> ¡Nosotros con valor!<br>
+                        <strong>Capitán:</strong> ¿Quién nunca se rinde?<br>
+                        <strong>Coro:</strong> ¡Un paraguayo con honor!
+                    </div>
+                </div>
+            </div>
+
+            <div class="escena">
+                <h2>💝 Escena 4: "Melodía del Corazón"</h2>
+
+                <div class="dialogo">
+                    <div class="personaje">🎤 Jorge López:</div>
+                    Llegó un día difícil en Acosta Ñu. Los niños sabían que tenían que ser muy valientes.
+                </div>
+
+                <div class="dialogo">
+                    <div class="personaje">👦 Gerardo Franco</div>
+                    Aunque somos pequeños, nuestro amor por Paraguay es gigante.
+                </div>
+
+                <div class="dialogo">
+                    <div class="personaje">⚔️ Elias Recalde:</div>
+                    No importa lo que pase, siempre recordarán que fuimos valientes.
+                </div>
+
+                <div class="cancion">
+                    <h3>❤️ Canción: "Corazones Valientes" - (D)</h3>
+                    <p><em>(Solo suave, todos cantando)</em></p>
+                    <div class="letra">
+                        "No somos grandes, pero somos fuertes,<br>
+                        en nuestro pecho late el corazón,<br>
+                        por Paraguay, por Paraguay,<br>
+                        damos todo nuestro amor."
+                    </div>
+                </div>
+            </div>
+
+            <div class="escena">
+                <h2>✨ Escena 5: "La Transformación"</h2>
+
+                <div class="dialogo">
+                    <div class="personaje">👼 Jessica (mamá de Horacio):</div>
+                    Los niños valientes nunca mueren, se convierten en estrellas que cuidan su patria.
+                </div>
+
+                <div class="dialogo">
+                    <div class="personaje">👩 Fátima Echeverria:</div>
+                    Por eso, cada 16 de agosto, todos los niños de Paraguay celebran su día.
+                </div>
+
+                <div class="dialogo">
+                    <div class="personaje">🎤 Jorge López:</div>
+                    Y desde ese día, todos los niños paraguayos son héroes también.
+                </div>
+
+                <div class="cancion">
+                    <h3>🌟 Canción: "Somos Todos Héroes" - (E)</h3>
+                    <p><em>CORO</em></p>
+                    <div class="letra">
+                        "Somos todos héroes, todos valientes,<br>
+                        en nuestra mente Acosta Ñu por siempre."
+                    </div>
+                </div>
+            </div>
+
+            <div class="final">
+                <h2>🎉 Escena 6: "Gran Polka de la Victoria" - (E)</h2>
+
+                <div class="dialogo">
+                    <div class="personaje">👦👧 Jorge López:</div>
+                    Hoy celebramos el Día del Niño, recordando a los valientes héroes de Acosta Ñu y honrando a todos
+                    los niños, quienes son la esperanza y el futuro de Paraguay.
+                </div>
+
+
+                <div class="cancion">
+                    <h3>🎊 Canción Final: "Vivan los Niños" (Polka)</h3>
+                    <p><em>(Todos cantando y bailando)</em></p>
+                    <div class="letra">
+                        "¡Vivan los niños de este lugar!<br>
+                        ¡viva Paraguay, viva la unión!"<br>
+                        <small><em>(Repetir mientras bailan y lanzan flores de papel)</em></small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="decoracion">
+                🌺🎭🇵🇾🎵🌟🎪✨🌺
+            </div>
+
+            <div class="info-box">
+                <strong>¡Una obra llena de amor, valentía y orgullo paraguayo! 🇵🇾</strong>
+            </div> -->
+        </div>
+    </div>
+</body>
+
+</html>
