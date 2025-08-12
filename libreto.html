@@ -24,11 +24,9 @@
             0% {
                 background: linear-gradient(135deg, #87CEEB 0%, #98FB98 50%, #FFB6C1 100%);
             }
-
             50% {
                 background: linear-gradient(135deg, #FFE4B5 0%, #F0E68C 50%, #DDA0DD 100%);
             }
-
             100% {
                 background: linear-gradient(135deg, #87CEEB 0%, #98FB98 50%, #FFB6C1 100%);
             }
@@ -64,19 +62,12 @@
         }
 
         @keyframes bounce {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
+            0%, 20%, 50%, 80%, 100% {
                 transform: translateX(-50%) translateY(0);
             }
-
             40% {
                 transform: translateX(-50%) translateY(-10px);
             }
-
             60% {
                 transform: translateX(-50%) translateY(-5px);
             }
@@ -94,7 +85,6 @@
             0% {
                 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             }
-
             100% {
                 text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.8);
             }
@@ -188,7 +178,6 @@
             0% {
                 transform: rotate(0deg);
             }
-
             100% {
                 transform: rotate(360deg);
             }
@@ -241,12 +230,9 @@
         }
 
         @keyframes musicNote {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translateX(-50%) scale(1);
             }
-
             50% {
                 transform: translateX(-50%) scale(1.1);
             }
@@ -297,11 +283,9 @@
             0% {
                 background-position: 0% 50%;
             }
-
             50% {
                 background-position: 100% 50%;
             }
-
             100% {
                 background-position: 0% 50%;
             }
@@ -335,14 +319,53 @@
         }
 
         @keyframes float {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translateY(0px);
             }
-
             50% {
                 transform: translateY(-10px);
+            }
+        }
+
+        .audio-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        .audio-control:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .audio-control:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            }
+            50% {
+                box-shadow: 0 8px 25px rgba(255, 107, 107, 0.5), 0 0 0 10px rgba(255, 107, 107, 0.1);
+            }
+            100% {
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             }
         }
 
@@ -370,6 +393,14 @@
                 font-size: 1.05em;
                 line-height: 1.5;
             }
+
+            .audio-control {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 24px;
+            }
         }
     </style>
 </head>
@@ -383,9 +414,7 @@
                 su patria. Aunque eran pequeños, tenían corazones enormes. Al final, se convirtieron en estrellas que
                 cuidan Paraguay desde el cielo.
                 Cada 16 de agosto, Paraguay celebra el Día del Niño para recordar a estos héroes.
-
             </div>
-            <!-- <div class="subtitle">Duración aproximada: 20-25 minutos</div> -->
         </div>
 
         <div class="content">
@@ -505,7 +534,7 @@
                 </div>
 
                 <div class="dialogo">
-                    <div class="personaje">👦 Gerardo Franco</div>
+                    <div class="personaje">👦 Gerardo Franco:</div>
                     Aunque somos pequeños, nuestro amor por Paraguay es gigante.
                 </div>
 
@@ -563,7 +592,6 @@
                     los niños, quienes son la esperanza y el futuro de Paraguay.
                 </div>
 
-
                 <div class="cancion">
                     <h3>🎊 Canción Final: "Vivan los Niños" (Polka)</h3>
                     <p><em>(Todos cantando y bailando)</em></p>
@@ -574,16 +602,80 @@
                     </div>
                 </div>
             </div>
-
-            <!-- <div class="decoracion">
-                🌺🎭🇵🇾🎵🌟🎪✨🌺
-            </div>
-
-            <div class="info-box">
-                <strong>¡Una obra llena de amor, valentía y orgullo paraguayo! 🇵🇾</strong>
-            </div> -->
         </div>
     </div>
+    
+    <audio id="backgroundMusic" loop autoplay>
+        <source src="obra.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    
+    <button class="audio-control" id="audioToggle" onclick="toggleAudio()">
+        🎵
+    </button>
+
+    <script>
+        const audio = document.getElementById('backgroundMusic');
+        const toggleButton = document.getElementById('audioToggle');
+        let isPlaying = false;
+
+        // Configuración inicial del audio
+        audio.volume = 0.7; // Volumen al 70%
+        
+        function toggleAudio() {
+            if (isPlaying) {
+                audio.pause();
+                toggleButton.innerHTML = '🎵';
+                toggleButton.style.animation = 'none';
+            } else {
+                audio.play().catch(e => {
+                    console.log('Error al reproducir audio:', e);
+                    // Mostrar mensaje más amigable
+                    toggleButton.innerHTML = '▶️';
+                    toggleButton.title = 'Haz clic para reproducir música';
+                });
+                toggleButton.innerHTML = '⏸️';
+                toggleButton.style.animation = 'pulse 2s infinite';
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Inicialización al cargar la página
+        window.addEventListener('load', () => {
+            // Configurar botón inicial
+            toggleButton.title = 'Reproducir/Pausar música';
+            
+            // Intentar reproducir inmediatamente
+            const playPromise = audio.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    // Reproducción exitosa
+                    isPlaying = true;
+                    toggleButton.innerHTML = '⏸️';
+                    toggleButton.style.animation = 'pulse 2s infinite';
+                }).catch(() => {
+                    // Reproducción bloqueada - mostrar botón de play
+                    toggleButton.innerHTML = '▶️';
+                    toggleButton.title = 'Haz clic para iniciar la música';
+                    isPlaying = false;
+                });
+            }
+        });
+
+        // Actualizar el estado del botón según el estado del audio
+        audio.addEventListener('play', () => {
+            isPlaying = true;
+            toggleButton.innerHTML = '⏸️';
+            toggleButton.style.animation = 'pulse 2s infinite';
+        });
+
+        audio.addEventListener('pause', () => {
+            isPlaying = false;
+            toggleButton.innerHTML = '🎵';
+            toggleButton.style.animation = 'none';
+        });
+    </script>
 </body>
 
 </html>
