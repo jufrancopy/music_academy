@@ -327,6 +327,47 @@
             }
         }
 
+        .detalles {
+            background: linear-gradient(135deg, #FFF3E0, #E8F5E8);
+            border: 2px solid #FF9800;
+            border-left: 6px solid #4CAF50;
+            padding: 12px 18px;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #2E7D32;
+            font-size: 1em;
+            box-shadow: 0 3px 10px rgba(76, 175, 80, 0.2);
+            position: relative;
+            font-family: 'Arial Black', 'Arial', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .detalles::before {
+            content: '🎬';
+            position: absolute;
+            left: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #4CAF50;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .detalles:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+            transition: all 0.3s ease;
+        }
+
         .audio-control {
             position: fixed;
             bottom: 30px;
@@ -421,19 +462,20 @@
             <div class="personajes">
                 <h2>🎭 Personajes 🎭</h2>
                 <ul>
-                    <li>🎤 Jorge López (Narrador)</li>
-                    <li>⚔️ Elias Recalde (Capitán)</li>
-                    <li>👦 Eduardo Alliendre (Soldadito)</li>
-                    <li>👦 Miguel Capurro (Soldatito)</li>
-                    <li>👦 Gerardo Franco (Soldadito)</li>
-                    <li>👩 Fátima Echeverria (Madre Tierra)</li>
-                    <li>👼 Jessica (Ángel de la Paz)</li>
+                    <li>🎤 Jorge López</li>
+                    <li>⚔️ Elias Recalde</li>
+                    <li>👦 Eduardo Alliendre</li>
+                    <li>👦 Miguel Capurro</li>
+                    <li>👦 Gerardo Franco</li>
+                    <li>👩 Fátima Echeverria</li>
+                    <li>👼 Jessica (mamá de Horacio)</li>
                     <li>🎵 Coro, todos los Niños del Tercer Grado</li>
                 </ul>
             </div>
 
             <div class="escena">
                 <h2>🌅 Escena 1: "Nuestra Patria Querida"</h2>
+                <p class="detalles">Todos sentados en semicírculo</p>
 
                 <div class="cancion">
                     <h3>🎵 Canción Introductoria - Acosta Ñu - (Dm)</h3>
@@ -463,16 +505,17 @@
                         Oh Paraguay che retã porã"
                     </div>
                 </div>
-
             </div>
 
             <div class="escena">
                 <h2>🥁 Escena 2: "Marcha de los Pequeños Héroes"</h2>
-
+                
                 <div class="dialogo">
                     <div class="personaje">⚔️ Elias Recalde:</div>
                     ¡Soldaditos, en formación! ¡Marchemos por nuestra patria!
                 </div>
+
+                <p class="detalles">De pie,  listos para la formación</p>
 
                 <div class="dialogo">
                     <div class="personaje">👦 TODOS:</div>
@@ -489,10 +532,12 @@
                         ¡marchamos todos con valor!"
                     </div>
                 </div>
+                <p class="detalles">Todos vuelven a sentarse.</p>
             </div>
 
             <div class="escena">
                 <h2>📢 Escena 3: "La Llamada del Deber"</h2>
+                <p class="detalles">Ingreso al centro de la Madre Tierra, que se dirige a ellos mirándolos.</p>
 
                 <div class="dialogo">
                     <div class="personaje">👩 Fátima Echeverria:</div>
@@ -508,12 +553,12 @@
                     <div class="personaje">👦 Eduardo Alliendre:</div>
                     ¡Protegeremos nuestra casa!
                 </div>
-
+                <p class="detalles">Los niños se levantan con determinación.</p>
                 <div class="dialogo">
                     <div class="personaje">👦 TODOS:</div>
                     ¡Juntos somos más fuertes!
                 </div>
-
+                <p class="detalles">El Capitán los exhorta, mirándolos a cada uno.</p>
                 <div class="cancion">
                     <h3>💪 Canción: "Pequeños Pero Valientes" - (E)</h3>
                     <p><em>(Solo Capitán, coro responde)</em></p>
@@ -528,6 +573,7 @@
 
             <div class="escena">
                 <h2>💝 Escena 4: "Melodía del Corazón"</h2>
+                <p class="detalles">Todos de pie, agrupados, en posición de atención.</p>
 
                 <div class="dialogo">
                     <div class="personaje">🎤 Jorge López:</div>
@@ -543,7 +589,7 @@
                     <div class="personaje">⚔️ Elias Recalde:</div>
                     No importa lo que pase, siempre recordarán que fuimos valientes.
                 </div>
-
+                <p class="detalles">Todos Marchando para combatir.</p>
                 <div class="cancion">
                     <h3>❤️ Canción: "Corazones Valientes" - (D)</h3>
                     <p><em>(Solo suave, todos cantando)</em></p>
@@ -554,15 +600,19 @@
                         damos todo nuestro amor."
                     </div>
                 </div>
+                <p class="detalles">La Guerra terminó, hay cuerpos caídos.</p>
             </div>
 
             <div class="escena">
                 <h2>✨ Escena 5: "La Transformación"</h2>
+                <p class="detalles">En medio de los pequeños caídos, con una voz dulce y esperanzadora.</p>
 
                 <div class="dialogo">
                     <div class="personaje">👼 Jessica (mamá de Horacio):</div>
                     Los niños valientes nunca mueren, se convierten en estrellas que cuidan su patria.
                 </div>
+
+                <p class="detalles">Los niños caídos se levantan lentamente y se abrazan.</p>
 
                 <div class="dialogo">
                     <div class="personaje">👩 Fátima Echeverria:</div>
@@ -592,14 +642,14 @@
                     Hoy celebramos el Día del Niño, recordando a los valientes héroes de Acosta Ñu y honrando a todos
                     los niños, quienes son la esperanza y el futuro de Paraguay.
                 </div>
-
+                <p class="detalles">Todos los niños, corriendo en fila con su banderas, con algarabía y gozo.</p>
                 <div class="cancion">
                     <h3>🎊 Canción Final: "Vivan los Niños" (Polka)</h3>
                     <p><em>(Todos cantando y bailando)</em></p>
                     <div class="letra">
                         "¡Vivan los niños de este lugar!<br>
-                        ¡viva Niños, del Paraguay!"<br>
-                        <small><em>(Repetir varias veces, con todos los Niños Presente)</em></small>
+                        Vivan los Niños del Paraguay!"<br>
+                        <small><em>(Se repite con todo el público varias veces)</em></small>
                     </div>
                 </div>
             </div>
